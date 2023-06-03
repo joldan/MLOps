@@ -3,11 +3,14 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 
-
 # useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
+import scrapy 
+from scrapy.pipelines.images import ImagesPipeline
 
+class customImagePipeline(ImagesPipeline):
+    def file_path(self, request, response=None, info=None):
+    # Customize the filename based on your requirements
+        filename = request.meta['item']['id']
+        #filename = request.url.split('/')[-1]
+        return filename
 
-class GallitoSpiderPipeline:
-    def process_item(self, item, spider):
-        return item

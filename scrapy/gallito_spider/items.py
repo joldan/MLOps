@@ -7,8 +7,21 @@ import scrapy
 from scrapy.item import Field
 
 class GallitoSpiderItem(scrapy.Item):
-	tipo = Field()
-	baños = Field()
-	dormitorios = Field()
-	precio = Field()
-	titulo = Field()
+	# Metadata
+	id = Field()
+	date = Field()
+	url = Field()
+	# Posting information
+	building_type = Field()
+	deal_type = Field()
+	location = Field()
+	rooms = Field()
+	bathrooms = Field()
+	area = Field()
+	price = Field()
+	title = Field()
+	# Image info
+	image_urls = Field()
+	images = Field()
+
+
