@@ -9,9 +9,9 @@ import re
 
 class gallitoCrawler(CrawlSpider):
 
-	#id = 0
+	id = 0
 	name = "gallito_crawler-img"
-	start_urls = ["https://www.gallito.com.uy/inmuebles/apartamentos"]
+	start_urls = ["https://www.gallito.com.uy/inmuebles/apartamentos","https://www.gallito.com.uy/inmuebles/casas"]
 	allowed_domains = ['gallito.com.uy']
 	
 	custom_settings = {
@@ -21,11 +21,11 @@ class gallitoCrawler(CrawlSpider):
         ),
 		"max_items_per_label": 2,
         "label_field": "property_type",
-        "CLOSESPIDER_ITEMCOUNT": 5,
+        "CLOSESPIDER_ITEMCOUNT": 20000,
     }
 
 	rules = {
-		Rule(LinkExtractor(allow=r'\/inmuebles\/apartamentos\?pag=\d+')),
+		Rule(LinkExtractor(allow=[r'\/inmuebles\/apartamentos\?pag=\d+',r'\/inmuebles\/casas\?pag=\d+'])),
 		Rule(LinkExtractor(allow=(r"-\d{8}$")), callback="parse"),
 	}
 
@@ -66,8 +66,8 @@ class gallitoCrawler(CrawlSpider):
 		##images
 		item['image_urls'] = response.css('#galeria img::attr(src)').extract()[:1] #Se toma 
 
-#		item['id'] = self.id
-#		self.id += 1
+		item['id'] = self.id
+		self.id += 1
 
 		item['date'] = datetime.datetime.now()
 		item['url'] = response.url

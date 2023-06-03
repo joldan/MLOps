@@ -8,9 +8,10 @@ import scrapy
 from scrapy.pipelines.images import ImagesPipeline
 
 class customImagePipeline(ImagesPipeline):
-    def file_path(self, request, response=None, info=None):
+    def file_path(self, request, response=None, info=None, item=None):
     # Customize the filename based on your requirements
-        filename = request.meta['item']['id']
+        filename = item['id']
+        #ptin
         #filename = request.url.split('/')[-1]
         return filename
 
