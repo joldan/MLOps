@@ -1,17 +1,20 @@
 __author__ = "LaLOSS"
 
+from scrapy import signals
 from scrapy.item import Field, Item
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 from gallito_spider.items import GallitoSpiderItem
 import datetime
 import re
+from gallito_spider.azure_helpers import append_file_to_blob
+
 
 class gallitoCrawler(CrawlSpider):
 
 	id = 0
-	name = "gallito_crawler-img"
-	start_urls = ["https://www.gallito.com.uy/inmuebles/apartamentos","https://www.gallito.com.uy/inmuebles/casas"]
+	name = "gallito_crawler_img"
+	start_urls = ["https://www.gallito.com.uy/inmuebles/apartamentos/venta","https://www.gallito.com.uy/inmuebles/casas/venta"]
 	allowed_domains = ['gallito.com.uy']
 	
 	custom_settings = {
@@ -21,7 +24,7 @@ class gallitoCrawler(CrawlSpider):
         ),
 		"max_items_per_label": 2,
         "label_field": "property_type",
-        "CLOSESPIDER_ITEMCOUNT": 20000,
+        "CLOSESPIDER_ITEMCOUNT": 50,
     }
 
 	rules = {
@@ -73,7 +76,14 @@ class gallitoCrawler(CrawlSpider):
 		item['url'] = response.url
 		return item 
 
-	def parse_atributes(response):
-		attributes = response.xpath('//*[@id="div_datosOperacion"]').get()
-		return attributes
+	@classmethod
+	def from_crawler(cls, crawler, *args, **kwargs):
+		spider = super(gallitoCrawler, cls).from_crawler(crawler, *args, **kwargs)
+		crawler.signals.connect(spider.spider_closed, signal=signals.spider_closed)
+		return spider
+
+	def spider_closed(self, spider):
+		spider.logger.info("Spider closed: %s", spider.name)
+		for uri, _ in self.settings.getdict("FEEDS").items():
+			append_file_to_blob(uri)
 
