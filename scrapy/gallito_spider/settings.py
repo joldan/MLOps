@@ -13,9 +13,7 @@ SPIDER_MODULES = ['gallito_spider.spiders']
 NEWSPIDER_MODULE = 'gallito_spider.spiders'
 #pipelines
 #ITEM_PIPELINES = {"gallito_spider.pipelines.customImagePipeline": 1}
-ITEM_PIPELINES = {"scrapy.pipelines.images.ImagesPipeline": 1}
-
-IMAGES_STORE = "/Users/joaquinoldan/Documents/MASTER AI/3- Machine Learning en Producción/Obligatorio/MLOps/scrapy/Image"
+#IMAGES_STORE = "/Users/joaquinoldan/Documents/MASTER AI/3- Machine Learning en Producción/Obligatorio/MLOps/scrapy/Image"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'gallito_spider (+http://www.yourdomain.com)'
