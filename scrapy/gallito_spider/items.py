@@ -9,6 +9,7 @@ from scrapy.item import Field
 class GallitoSpiderItem(scrapy.Item):
 	# Metadata
 	id = Field()
+	foreign_id = Field()
 	date = Field()
 	url = Field()
 	# Posting information

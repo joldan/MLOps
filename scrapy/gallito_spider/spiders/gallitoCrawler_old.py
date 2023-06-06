@@ -1,19 +1,36 @@
 __author__ = "LaLOSS"
 
-from scrapy import signals
 from scrapy.item import Field, Item
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
-from gallito_spider.items import GallitoSpiderItem
+from scrapy.loader import ItemLoader
 import datetime
 import re
-from gallito_spider.azure_helpers import upload_metadata_file, upload_images
+
+
+# Get the current date and time
+current_datetime = datetime.datetime.now()
+
+# Print the current date and time
+print(current_datetime)
+
+class MyscrapyItem(Item):
+	building_type = Field()
+	deal_type = Field()
+	location = Field()
+	rooms = Field()
+	bathrooms = Field()
+	area = Field()
+
+	price = Field()
+	title = Field()
+	
+	url = Field()
+	date = Field()
 
 class gallitoCrawler(CrawlSpider):
-
-	id = 0
-	name = "gallito_crawler_img"
-	start_urls = ["https://www.gallito.com.uy/inmuebles/apartamentos/venta","https://www.gallito.com.uy/inmuebles/casas/venta"]
+	name = "gallito_crawler_old"
+	start_urls = ["https://www.gallito.com.uy/inmuebles/apartamentos"]
 	allowed_domains = ['gallito.com.uy']
 	
 	custom_settings = {
@@ -23,22 +40,22 @@ class gallitoCrawler(CrawlSpider):
         ),
 		"max_items_per_label": 2,
         "label_field": "property_type",
-        "CLOSESPIDER_ITEMCOUNT": 20,
+        "CLOSESPIDER_ITEMCOUNT": 5,
     }
 
 	rules = {
-		Rule(LinkExtractor(allow=[r'\/inmuebles\/apartamentos\?pag=\d+',r'\/inmuebles\/casas\?pag=\d+'])),
+		Rule(LinkExtractor(allow=r'\/inmuebles\/apartamentos\?pag=\d+')),
 		Rule(LinkExtractor(allow=(r"-\d{8}$")), callback="parse"),
 	}
 
 	def parse(self, response):
-		item = GallitoSpiderItem()
-		## tabular data
+		item = MyscrapyItem()
 		item['price'] = response.xpath('/html/body/form/main/div/section/div/div[2]/span/text()').get()
 		item['title'] = response.xpath('/html/body/form/main/div/section/div/h1/text()').get()
-		## More tabular data
+		
 		res = response.css('#div_datosOperacion .wrapperDatos')	
 		attribute_classes = {'fas fa-building':'building_type', 'fas fa-handshake':'deal_type', 'fas fa-map-marked':'location', 'fas fa-bed':'rooms', 'fas fa-bath':'bathrooms', 'far fa-square':'area'}	
+		#print(len(res.getall(ß)))
 		for child in res:
 			p_value = child.css('div.wrapperDatos > p::text').get()
 			i_class = child.css('div.wrapperDatos > div.iconoDatos > i::attr(class)').get()
@@ -65,24 +82,12 @@ class gallitoCrawler(CrawlSpider):
 						item[attribute_classes[i_class]] = 0 
 				else:
 					item[attribute_classes[i_class]] = p_value
-		##images
-		item['image_urls'] = response.css('#galeria img::attr(src)').extract()[:1] #Se toma 
-
-		item['id'] = self.id
-		self.id += 1
-
+					
 		item['date'] = datetime.datetime.now()
 		item['url'] = response.url
 		return item 
 
-	@classmethod
-	def from_crawler(cls, crawler, *args, **kwargs):
-		spider = super(gallitoCrawler, cls).from_crawler(crawler, *args, **kwargs)
-		crawler.signals.connect(spider.spider_closed, signal=signals.spider_closed)
-		return spider
+	def parse_atributes(response):
+		attributes = response.xpath('//*[@id="div_datosOperacion"]').get()
+		return attributes
 
-	def spider_closed(self, spider):
-		today = datetime.date.today().isoformat()
-		spider.logger.info("Spider closed: %s", "UPLOADING FILES TO FOLDER ")
-		upload_metadata_file()
-		upload_images()
