@@ -7,8 +7,7 @@ from scrapy.linkextractors import LinkExtractor
 from gallito_spider.items import GallitoSpiderItem
 import datetime
 import re
-from gallito_spider.azure_helpers import append_file_to_blob
-
+from gallito_spider.azure_helpers import upload_metadata_file, upload_images
 
 class gallitoCrawler(CrawlSpider):
 
@@ -24,7 +23,7 @@ class gallitoCrawler(CrawlSpider):
         ),
 		"max_items_per_label": 2,
         "label_field": "property_type",
-        "CLOSESPIDER_ITEMCOUNT": 50,
+        "CLOSESPIDER_ITEMCOUNT": 20,
     }
 
 	rules = {
@@ -83,7 +82,7 @@ class gallitoCrawler(CrawlSpider):
 		return spider
 
 	def spider_closed(self, spider):
-		spider.logger.info("Spider closed: %s", spider.name)
-		for uri, _ in self.settings.getdict("FEEDS").items():
-			append_file_to_blob(uri)
-
+		today = datetime.date.today().isoformat()
+		spider.logger.info("Spider closed: %s", "UPLOADING FILES TO FOLDER ")
+		upload_metadata_file()
+		upload_images()

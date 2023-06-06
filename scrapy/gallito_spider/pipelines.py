@@ -12,8 +12,6 @@ class customImagePipeline(ImagesPipeline):
     def file_path(self, request, response=None, info=None, item=None):
     # Customize the filename based on your requirements
         filename = item['id']
-        #ptin
-        #filename = request.url.split('/')[-1]
         return filename
 
 #    def item_completed(self, results, item, info):

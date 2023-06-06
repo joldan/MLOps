@@ -82,11 +82,7 @@ class gallitoCrawler(CrawlSpider):
 						item[attribute_classes[i_class]] = 0 
 				else:
 					item[attribute_classes[i_class]] = p_value
-
-
-
-
-
+					
 		item['date'] = datetime.datetime.now()
 		item['url'] = response.url
 		return item 
