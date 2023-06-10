@@ -7,3 +7,9 @@
 2023-06-10 12:48:19,168 Start Data Clean
 2023-06-10 12:57:29,019 Start Data Clean
 2023-06-10 14:08:39,192 Start Data Clean
+2023-06-10 14:22:18,228 Clean Area failed to obtain number and pass it to in in string: 16 Mts
+2023-06-10 14:22:33,397 Clean Area failed to obtain number and pass it to in in string: U$S 159.000
+2023-06-10 14:25:39,043 Clean Area failed to obtain number and pass it to in in string: U$S 159.000
+2023-06-10 14:27:05,113 Clean Area failed to obtain number and pass it to in in string: U$S 159.000
+2023-06-10 14:28:51,307 Clean Area failed to obtain number and pass it to in in string: U$S 159.000
+2023-06-10 14:43:59,209 Clean Bathroom failed to obtain number and pass it to in in string: Más de 3 baños
