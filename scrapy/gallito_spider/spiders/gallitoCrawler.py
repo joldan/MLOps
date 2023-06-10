@@ -35,7 +35,7 @@ class gallitoCrawler(CrawlSpider):
 	def parse(self, response):
 		item = GallitoSpiderItem()
 		## scrape tabular data
-		item['price'] = response.xpath('/html/body/form/main/div/section/div/div[2]/span/text()').get()
+		item['price'] = response.css('.precio::text').get()
 		item['title'] = response.xpath('/html/body/form/main/div/section/div/h1/text()').get()
 
 		item['department'] = response.xpath('/html/body/form/nav/ol/li[5]/a/text()').get()
