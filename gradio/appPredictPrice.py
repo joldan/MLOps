@@ -1,10 +1,19 @@
-### First APP with gradio
+### APP with gradio
 
 import json
 import gradio as gr
+import logging
+from os.path import dirname, abspath
+import datetime as time
+rootPath = dirname(dirname(abspath(__file__)))
+
+# Definicon de archivo de log
+#rf_handler = RotatingFileHandler((LOG_PATH / 'app.log').resolve(), maxBytes=10_000_000, backupCount=10, encoding='utf-8', mode='w')
+logging.basicConfig(filename='app.log', encoding='utf-8',format='%(asctime)s %(message)s', level=logging.INFO)
+logging.info(f"Start APP, %s",time.datetime.now())
 
 # Cargar atributos de los Dropdown del archivo JSON
-with open('options.json') as file:
+with open(rootPath+'/gradio/options.json') as file:
     data = json.load(file)
 
 # Cargar los departamentos
@@ -60,4 +69,4 @@ with gr.Blocks() as appPredictPrice:
     #text_button.click(flip_text, inputs=text_input, outputs=text_output)
     #image_button.click(flip_image, inputs=image_input, outputs=image_output)
 
-appPredictPrice.launch()
+#appPredictPrice.launch()

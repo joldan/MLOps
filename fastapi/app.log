@@ -1,0 +1,24 @@
+INFO:root:/root/Master/MLEP/repos/Obligatorio/MLOps
+INFO:root:Start APP, 2023-06-09 19:16:39.817274
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): checkip.amazonaws.com:443
+DEBUG:urllib3.connectionpool:https://checkip.amazonaws.com:443 "GET / HTTP/1.1" 200 15
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.gradio.app:443
+DEBUG:markdown_it.rules_block.code:entering code: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.fence:entering fence: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.blockquote:entering blockquote: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.hr:entering hr: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.list:entering list: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.reference:entering reference: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.html_block:entering html_block: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.code:entering code: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.fence:entering fence: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.blockquote:entering blockquote: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.hr:entering hr: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.list:entering list: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.reference:entering reference: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.html_block:entering html_block: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.heading:entering heading: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.lheading:entering lheading: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:markdown_it.rules_block.paragraph:entering paragraph: StateBlock(line=0,level=0,tokens=0), 0, 1, False
+DEBUG:urllib3.connectionpool:https://api.gradio.app:443 "POST /gradio-initiated-analytics/ HTTP/1.1" 200 None
+DEBUG:matplotlib.pyplot:Loaded backend agg version v2.2.
