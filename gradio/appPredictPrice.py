@@ -7,11 +7,18 @@ import logging as log
 from os.path import dirname, abspath
 import datetime as time
 from logging.handlers import RotatingFileHandler
+from sys import path
+rootPath = dirname(dirname(abspath(__file__)))
+# Import LocationManager
+dataCleanPath= rootPath+"/dataclean/"
+path.append(dataCleanPath)
+from LocationManager import *
 
 # System constants
 dropdownOption = "options.json" 
 rootPath = dirname(dirname(abspath(__file__)))
 gradioPath= rootPath+"/gradio/"
+confPath = rootPath+"/conf/"
 logName = "gradio.log"
 
 
@@ -20,9 +27,12 @@ rf_handler = RotatingFileHandler((gradioPath+"/"+logName), maxBytes=10_000_000, 
 log.basicConfig(encoding='utf-8',format='%(asctime)s %(message)s', level=log.INFO,handlers=[rf_handler])
 log.info("Start Gradio APP")
 
+# Generate Location Array
+loc = LocationManager()
+
 # Load dropdown attributes
 try:
-    myFile = open(gradioPath+dropdownOption)
+    myFile = open(confPath+dropdownOption)
     data = json.load(myFile)
     log.info(f"Loading Dropdown atributes from %s",dropdownOption)
     myFile.close()
@@ -73,6 +83,11 @@ def estimateValue(*param):
     log.info(f'Param of function %s -> %s',estimateValue.__name__,param)
     pront = generateDataArray(*param)
     return str(pront)
+
+def locatioToInt(deparment, log):
+    deploc = department + loc
+    deploc = deploc.lower().replace(' ','')
+
 
 with gr.Blocks() as appPredictPrice:
     gr.Markdown("<h2>Estime el valor de su inmueble</h2>")
