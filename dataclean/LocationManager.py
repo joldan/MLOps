@@ -1,20 +1,21 @@
 #The class is created to translate between the options file and an array necesary to
 # validate department and location fields
 from os.path import dirname, abspath
+import json
 
 class LocationManager:
     def __init__(self):
+        self.rootPath = dirname(dirname(abspath(__file__)))
+        self.confPath = self.rootPath+"/conf/"
         self.location_options_dict = None
         self.department = None
         self.departmentlocation = None
-        
+        self.saveDepartmentLocation()
         self.loadDepartmentLocation()
-        rootPath = dirname(dirname(abspath(__file__)))
-        rootConf = rootPath+"conf/"
 
     # Open file 
     def loadLocations(self, path='options.json'):
-        with open(rootConf+path) as json_file:
+        with open(self.confPath+path) as json_file:
             location_options = json.load(json_file)
         self.location_options_dict = location_options
     
@@ -36,11 +37,11 @@ class LocationManager:
         self.getDepsLocsFromObject()
         out = {'dep':self.department,
                 'deploc': self.departmentlocation}
-        with open(rootConf+path, 'w') as file:
+        with open(self.confPath+path, 'w') as file:
             json.dump(out, file)
 
     def loadDepartmentLocation(self, path='deploc.json'):
-        with open(rootConf+path) as json_file:
+        with open(self.confPath+path) as json_file:
             deploc = json.load(json_file)
             self.departmentlocation = deploc
 
