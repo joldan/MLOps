@@ -19,6 +19,8 @@ def cleanData(row):
 def removeUnusedAndNullRows(df):
     return df.drop(['date','deal_type','foreign_id','image_urls','images','location','department','title','url'],axis=1).dropna()
 
+def saveCleanData(df, path='cleanData.csv'):
+    df.to_csv(path, index=False)
 
 
 def cleanBathroom(bathrooms):
