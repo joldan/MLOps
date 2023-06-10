@@ -4,9 +4,14 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from sys import path
+from os.path import dirname, abspath
+import datetime as time
+rootPath = dirname(dirname(abspath(__file__)))
 
 #Importar funciones de la app en Gradio
-path.append("../gradio")
+#path.append("../gradio")
+gradioAppPath= rootPath+"/gradio/"
+path.append(gradioAppPath)
 from appPredictPrice import *
 
 app = FastAPI()

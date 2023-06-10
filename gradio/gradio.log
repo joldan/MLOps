@@ -1,0 +1,141 @@
+2023-06-10 12:08:30,273 Start Gradio APP
+2023-06-10 12:08:30,275 Looading Dropdown atributes from options.json
+2023-06-10 12:23:47,162 Start Gradio APP
+2023-06-10 12:23:47,163 Loading Dropdown atributes from options.json
+2023-06-10 12:23:47,164 Loading department and neighbor
+2023-06-10 12:31:15,929 Start Gradio APP
+2023-06-10 12:31:15,929 Loading Dropdown atributes from options.json
+2023-06-10 12:31:15,930 Loading department and neighbor
+2023-06-10 12:32:40,915 Start Gradio APP
+2023-06-10 12:32:40,916 Loading Dropdown atributes from options.json
+2023-06-10 12:32:40,916 Loading department and neighbor
+2023-06-10 12:32:52,578 Function appPredictPrice invoc
+2023-06-10 12:49:16,181 Start Gradio APP
+2023-06-10 12:49:16,182 Loading Dropdown atributes from options.json
+2023-06-10 12:49:16,183 Loading department and neighbor
+2023-06-10 12:50:33,355 Start Gradio APP
+2023-06-10 12:50:33,356 Loading Dropdown atributes from options.json
+2023-06-10 12:50:33,357 Loading department and neighbor
+2023-06-10 12:51:28,496 Start Gradio APP
+2023-06-10 12:51:28,496 Loading Dropdown atributes from options.json
+2023-06-10 12:51:28,497 Loading department and neighbor
+2023-06-10 12:57:04,837 Start Gradio APP
+2023-06-10 12:57:04,838 Loading Dropdown atributes from options.json
+2023-06-10 12:57:04,839 Loading department and neighbor
+2023-06-10 12:58:18,976 Start Gradio APP
+2023-06-10 12:58:18,977 Loading Dropdown atributes from options.json
+2023-06-10 12:58:18,977 Loading department and neighbor
+2023-06-10 12:58:33,625 Function updateNeighbor invoc
+2023-06-10 12:58:43,971 Function clearInput invoc
+2023-06-10 12:58:44,003 Function updateNeighbor invoc
+2023-06-10 13:27:15,799 Start Gradio APP
+2023-06-10 13:27:15,801 Loading Dropdown atributes from options.json
+2023-06-10 13:27:15,802 Loading department and neighbor
+2023-06-10 13:27:24,437 Function updateNeighbor invoked
+2023-06-10 13:30:37,291 Start Gradio APP
+2023-06-10 13:30:37,292 Loading Dropdown atributes from options.json
+2023-06-10 13:30:37,292 Loading department and neighbor
+2023-06-10 13:33:29,980 Start Gradio APP
+2023-06-10 13:33:29,982 Loading Dropdown atributes from options.json
+2023-06-10 13:33:29,983 Loading department and neighbor
+2023-06-10 13:35:47,391 Start Gradio APP
+2023-06-10 13:35:47,392 Loading Dropdown atributes from options.json
+2023-06-10 13:35:47,393 Loading department and neighbor
+2023-06-10 15:11:28,759 Start Gradio APP
+2023-06-10 15:11:28,760 Loading Dropdown atributes from options.json
+2023-06-10 15:11:28,761 Loading department and neighbor
+2023-06-10 15:11:47,480 Function estimateValue invoked
+2023-06-10 15:12:17,573 Start Gradio APP
+2023-06-10 15:12:17,574 Loading Dropdown atributes from options.json
+2023-06-10 15:12:17,577 Loading department and neighbor
+2023-06-10 15:12:25,845 Function estimateValue invoked
+2023-06-10 15:12:25,845 Function makeDataArray invoked
+2023-06-10 15:14:38,516 Start Gradio APP
+2023-06-10 15:14:38,517 Loading Dropdown atributes from options.json
+2023-06-10 15:14:38,518 Loading department and neighbor
+2023-06-10 15:14:43,491 Function estimateValue invoked
+2023-06-10 15:14:43,491 Function makeDataArray invoked
+2023-06-10 15:15:37,656 Start Gradio APP
+2023-06-10 15:15:37,656 Loading Dropdown atributes from options.json
+2023-06-10 15:15:37,657 Loading department and neighbor
+2023-06-10 15:15:56,272 Function estimateValue invoked
+2023-06-10 15:15:56,273 Function makeDataArray invoked
+2023-06-10 15:16:42,402 Start Gradio APP
+2023-06-10 15:16:42,403 Loading Dropdown atributes from options.json
+2023-06-10 15:16:42,404 Loading department and neighbor
+2023-06-10 15:16:45,682 Function estimateValue invoked
+2023-06-10 15:16:45,683 Function makeDataArray invoked
+2023-06-10 15:16:45,683 (('Casa', 'Artigas', 'Artigas', 1, 1, 25),)
+2023-06-10 15:19:46,036 Start Gradio APP
+2023-06-10 15:19:46,037 Loading Dropdown atributes from options.json
+2023-06-10 15:19:46,037 Loading department and neighbor
+2023-06-10 15:19:49,872 Function estimateValue invoked
+2023-06-10 15:19:49,872 Function makeDataArray invoked
+2023-06-10 15:19:49,872 Param of function makeDataArray -> (('Casa', 'Artigas', 'Artigas', 1, 1, 25),)
+2023-06-10 15:22:25,153 Start Gradio APP
+2023-06-10 15:22:25,154 Loading Dropdown atributes from options.json
+2023-06-10 15:22:25,155 Loading department and neighbor
+2023-06-10 15:22:31,670 Function estimateValue invoked
+2023-06-10 15:22:31,670 Param of function estimateValue -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:22:31,671 Function makeDataArray invoked
+2023-06-10 15:22:31,671 Param of function makeDataArray -> (('Casa', 'Artigas', 'Artigas', 0, 1, 25),)
+2023-06-10 15:43:33,030 Start Gradio APP
+2023-06-10 15:43:33,031 Loading Dropdown atributes from options.json
+2023-06-10 15:43:33,031 Loading department and neighbor
+2023-06-10 15:43:36,076 Function estimateValue invoked
+2023-06-10 15:43:36,076 Param of function estimateValue -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:43:36,077 Function makeDataArray invoked
+2023-06-10 15:43:36,077 Param of function makeDataArray -> (('Casa', 'Artigas', 'Artigas', 0, 1, 25),)
+2023-06-10 15:45:26,798 Start Gradio APP
+2023-06-10 15:45:26,799 Loading Dropdown atributes from options.json
+2023-06-10 15:45:26,799 Loading department and neighbor
+2023-06-10 15:45:29,320 Function estimateValue invoked
+2023-06-10 15:45:29,320 Param of function estimateValue -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:45:29,321 Function makeDataArray invoked
+2023-06-10 15:45:29,321 Param of function makeDataArray -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:46:26,481 Start Gradio APP
+2023-06-10 15:46:26,482 Loading Dropdown atributes from options.json
+2023-06-10 15:46:26,483 Loading department and neighbor
+2023-06-10 15:46:30,919 Function estimateValue invoked
+2023-06-10 15:46:30,919 Param of function estimateValue -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:46:30,920 Function makeDataArray invoked
+2023-06-10 15:46:30,920 Param of function makeDataArray -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:47:48,771 Start Gradio APP
+2023-06-10 15:47:48,771 Loading Dropdown atributes from options.json
+2023-06-10 15:47:48,773 Loading department and neighbor
+2023-06-10 15:47:51,794 Function estimateValue invoked
+2023-06-10 15:47:51,795 Param of function estimateValue -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:47:51,795 Function makeDataArray invoked
+2023-06-10 15:47:51,795 Param of function makeDataArray -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:48:44,591 Start Gradio APP
+2023-06-10 15:48:44,592 Loading Dropdown atributes from options.json
+2023-06-10 15:48:44,593 Loading department and neighbor
+2023-06-10 15:48:59,061 Function estimateValue invoked
+2023-06-10 15:48:59,062 Param of function estimateValue -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:48:59,062 Function makeDataArray invoked
+2023-06-10 15:48:59,063 Param of function makeDataArray -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:51:46,177 Start Gradio APP
+2023-06-10 15:51:46,178 Loading Dropdown atributes from options.json
+2023-06-10 15:51:46,178 Loading department and neighbor
+2023-06-10 15:52:07,125 Function estimateValue invoked
+2023-06-10 15:52:07,126 Param of function estimateValue -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:52:07,126 Function makeDataArray invoked
+2023-06-10 15:52:07,126 Param of function makeDataArray -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:53:49,365 Start Gradio APP
+2023-06-10 15:53:49,365 Loading Dropdown atributes from options.json
+2023-06-10 15:53:49,366 Loading department and neighbor
+2023-06-10 15:53:52,582 Function estimateValue invoked
+2023-06-10 15:53:52,582 Param of function estimateValue -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:53:52,582 Function makeDataArray invoked
+2023-06-10 15:53:52,583 Param of function makeDataArray -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:56:05,623 Start Gradio APP
+2023-06-10 15:56:05,623 Loading Dropdown atributes from options.json
+2023-06-10 15:56:05,624 Loading department and neighbor
+2023-06-10 15:56:08,122 Function estimateValue invoked
+2023-06-10 15:56:08,123 Param of function estimateValue -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:56:08,123 Function generateDataArray invoked
+2023-06-10 15:56:08,123 Param of function generateDataArray -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:56:17,318 Function estimateValue invoked
+2023-06-10 15:56:17,319 Param of function estimateValue -> ('Apartamento', 'Artigas', 'Artigas', 0, 1, 25)
+2023-06-10 15:56:17,319 Function generateDataArray invoked
+2023-06-10 15:56:17,319 Param of function generateDataArray -> ('Apartamento', 'Artigas', 'Artigas', 0, 1, 25)
