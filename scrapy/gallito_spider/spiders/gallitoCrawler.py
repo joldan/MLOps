@@ -20,14 +20,15 @@ class gallitoCrawler(CrawlSpider):
         ),
 		"max_items_per_label": 2,
         "label_field": "property_type",
-        "CLOSESPIDER_ITEMCOUNT": 20,  # Modifiy this values to change the max pages scraped
+        "CLOSESPIDER_ITEMCOUNT": 50000,  # Modifiy this values to change the max pages scraped
     }
 
 	start_urls = ["https://www.gallito.com.uy/inmuebles/apartamentos/venta","https://www.gallito.com.uy/inmuebles/casas/venta"]
+	#start_urls = ["https://www.gallito.com.uy/inmuebles/apartamentos","https://www.gallito.com.uy/inmuebles/casas"]
 	allowed_domains = ['gallito.com.uy']
 
 	rules = {
-		Rule(LinkExtractor(allow=[r'\/inmuebles\/apartamentos\?pag=\d+',r'\/inmuebles\/casas\?pag=\d+'])),
+		Rule(LinkExtractor(allow=[r'\/inmuebles\/apartamentos\/venta\?pag=\d+',r'\/inmuebles\/casas\/venta\?pag=\d+'])),
 		Rule(LinkExtractor(allow=(r"-\d{8}$")), callback="parse"),
 	}
 
@@ -36,6 +37,8 @@ class gallitoCrawler(CrawlSpider):
 		## scrape tabular data
 		item['price'] = response.xpath('/html/body/form/main/div/section/div/div[2]/span/text()').get()
 		item['title'] = response.xpath('/html/body/form/main/div/section/div/h1/text()').get()
+
+		item['department'] = response.xpath('/html/body/form/nav/ol/li[5]/a/text()').get()
 		## scrape tabular data inside the wrapperDatos section in the page. 
 		res = response.css('#div_datosOperacion .wrapperDatos')	
 		attribute_classes = {'fas fa-building':'building_type', 'fas fa-handshake':'deal_type', 'fas fa-map-marked':'location', 'fas fa-bed':'rooms', 'fas fa-bath':'bathrooms', 'far fa-square':'area'}	
@@ -89,5 +92,5 @@ class gallitoCrawler(CrawlSpider):
 	def spider_closed(self, spider):
 		today = datetime.date.today().isoformat()
 		spider.logger.info("Spider closed: %s", "UPLOADING FILES TO FOLDER ")
-		upload_metadata_file()
-		upload_images()
+		#upload_metadata_file()
+		#upload_images()

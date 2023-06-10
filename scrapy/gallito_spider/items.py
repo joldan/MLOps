@@ -13,6 +13,7 @@ class GallitoSpiderItem(scrapy.Item):
 	date = Field()
 	url = Field()
 	# Posting information
+	department = Field()
 	building_type = Field()
 	deal_type = Field()
 	location = Field()
