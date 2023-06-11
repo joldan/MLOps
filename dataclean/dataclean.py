@@ -47,9 +47,9 @@ def remove_files_from_path(filenames, path):
         file_path = os.path.join(path, filename)
         if os.path.isfile(file_path):
             os.remove(file_path)
-            log.info(f"File '{filename}' removed successfully.")
+            log.info(f"Main -> %s - File '{filename}' removed successfully.",__name__)
         else:
-            log.info(f"File '{filename}' does not exist.")
+            log.info(f"Main -> %s - File '{filename}' does not exist.",__name__)
 
 
 def cleanBathroom(bathrooms):
@@ -61,7 +61,7 @@ def cleanBathroom(bathrooms):
             int_baths = int(bathrooms[0])
         except:
             int_baths = None
-            log.info(f'Clean Bathroom failed to obtain number and pass it to in in string: %s',bathrooms)
+            log.info(f'Main -> %s - Clean Bathroom failed to obtain number and pass it to in in string: %s',__name__,bathrooms)
     return int_baths
 
 #print(cleanBathroom('Más de 3 baños'))
@@ -78,7 +78,7 @@ def cleanArea(area):
             int_area = 500
     except:
         int_area = None
-        log.info(f'Clean Area failed to obtain number and pass it to in in string: %s',area)
+        log.info(f'Main -> %s - Clean Area failed to obtain number and pass it to in in string: %s',__name__,area)
     return int_area
 
 #print(cleanArea('16 Mts'))
@@ -107,7 +107,7 @@ def cleanPrice(price):
         int_price = int(''.join(price))
     except:
         int_price = None
-        log.info(f'Clean Area failed to obtain number and pass it to in in string: %s',price)
+        log.info(f'Main -> %s - Clean Area failed to obtain number and pass it to in in string: %s',__name__,price)
     return int_price
 
 #print(cleanPrice('U$S 205.000'))
@@ -118,7 +118,7 @@ def cleanRooms(rooms):
         int_rooms = int(rooms)
     except:
         int_rooms = None
-        log.info(f'Cannot pass rooms to int: %s',rooms)
+        log.info(f'Main -> %s - Cannot pass rooms to int: %s',__name__,rooms)
     return int_rooms
 
 def cleanBuildingType(building_type):
@@ -131,48 +131,3 @@ def cleanBuildingType(building_type):
         binary_building_type = None
     return binary_building_type
 
-
-#The class is created to translate between the options file and an array necesary to
-# validate department and location fields
-class LocationManager:
-    def __init__(self):
-        self.location_options_dict = None
-        self.department = None
-        self.departmentlocation = None
-        
-        self.loadDepartmentLocation()
-
-    # Open file 
-    def loadLocations(self, path='options.json'):
-        with open(path) as json_file:
-            location_options = json.load(json_file)
-        self.location_options_dict = location_options
-    
-    def getDepsLocsFromObject(self):
-        deps = []
-        loc = []
-        depsloc = []
-        for department in self.location_options_dict:
-            deps.append(department)
-            for loc in self.location_options_dict[department]:
-                deploc = department + loc
-                deploc = deploc.lower().replace(' ','')
-                depsloc.append(deploc)
-        self.department = deps
-        self.departmentlocation = depsloc
-
-    def saveDepartmentLocation(self, path='deploc.json'):
-        self.loadLocations()
-        self.getDepsLocsFromObject()
-        out = {'dep':self.department,
-                'deploc': self.departmentlocation}
-        with open(path, 'w') as file:
-            json.dump(out, file)
-
-    def loadDepartmentLocation(self, path='deploc.json'):
-        with open(path) as json_file:
-            deploc = json.load(json_file)
-            self.departmentlocation = deploc
-
-    def getDepartmentLocation(self):
-        return self.departmentlocation['deploc']

@@ -3,58 +3,65 @@
 # Library
 import json
 import gradio as gr
-import logging as log
+#import logging as log
 from os.path import dirname, abspath
 import datetime as time
 from logging.handlers import RotatingFileHandler
 from sys import path
+import pandas as pd
 rootPath = dirname(dirname(abspath(__file__)))
 # Import LocationManager
 dataCleanPath= rootPath+"/dataclean/"
 path.append(dataCleanPath)
 from LocationManager import *
+from dataclean import *
+pathLog = rootPath+"/log/"
+path.append(pathLog)
+from myLog import *
 
 # System constants
 dropdownOption = "options.json" 
 rootPath = dirname(dirname(abspath(__file__)))
 gradioPath= rootPath+"/gradio/"
+fastapiPath = rootPath+"/fastapi/"
 confPath = rootPath+"/conf/"
-logName = "gradio.log"
+logName = "app.log"
 
 
 # Define system log
-rf_handler = RotatingFileHandler((gradioPath+"/"+logName), maxBytes=10_000_000, backupCount=5, encoding='utf-8', mode='w')
-log.basicConfig(encoding='utf-8',format='%(asctime)s %(message)s', level=log.INFO,handlers=[rf_handler])
-log.info("Start Gradio APP")
+#rf_handler = RotatingFileHandler((fastapiPath+"/"+logName), maxBytes=10_000_000, backupCount=5, encoding='utf-8', mode='w')
+#log.basicConfig(encoding='utf-8',format='%(asctime)s %(message)s', level=log.INFO,handlers=[rf_handler])
+log.info(f"Main -> %s - Start Gradio APP",__name__)
 
 # Generate Location Array
 loc = LocationManager()
+
 
 # Load dropdown attributes
 try:
     myFile = open(confPath+dropdownOption)
     data = json.load(myFile)
-    log.info(f"Loading Dropdown atributes from %s",dropdownOption)
+    log.info(f"Main -> %s - Loading Dropdown atributes from %s",__name__,dropdownOption)
     myFile.close()
 except:
-    log.info(f"Error to loading Dropdown atributes from %s",dropdownOption)
+    log.info(f"Main -> %s - Error to loading Dropdown atributes from %s",__name__,dropdownOption)
 
 # Load departments
 try:
     department = list(data.keys())
     neighbor = data[department[0]]
-    log.info("Loading department and neighbor")
+    log.info(f"Main -> %s - Loading department and neighbor",__name__)
 except:
-    log.info("Error to loading department and neighbor")
+    log.info(f"Main -> %s - Error to loading department and neighbor",__name__)
 
 # Load neighbors from departments
 def updateNeighbor(option):
-    log.info(f"Function %s invoked",updateNeighbor.__name__)
+    log.info(f"Main -> %s - Function %s invoked",__name__,updateNeighbor.__name__)
     neighbor = data[option]
     return gr.Dropdown.update(choices=neighbor,value=neighbor[0])
     
 def clearInput():
-    log.info(f"Function %s invoked",clearInput.__name__)
+    log.info(f"Main -> %s - Function %s invoked",__name__,clearInput.__name__)
     cle = [ gr.Radio.update(value="Casa"),
             gr.Dropdown.update(choices=department,value=department[0]),
             gr.Dropdown.update(choices=neighbor,value=neighbor[0]),
@@ -66,21 +73,23 @@ def clearInput():
     return cle
 
 def generateDataArray(*param):
-    log.info(f"Function %s invoked",generateDataArray.__name__)
-    log.info(f'Param of function %s -> %s',generateDataArray.__name__,param)
+    log.info(f"Main -> %s - Function %s invoked",__name__,generateDataArray.__name__)
+    log.info(f'Main -> %s - Param of function %s -> %s',__name__,generateDataArray.__name__,param)
     buildingType = param[0]
     departmentLocation = param[1]
     location = param[2]
     rooms = param[3]
     bathrooms = param[4]
     area = param[5]
-    pront = [buildingType,departmentLocation,location,area,rooms,bathrooms]
+    row = pd.DataFrame({"department":[departmentLocation],"location":[location],'departlocation':[0]})
+    row['departlocation'] = row.apply(cleanDepartmentLocation, axis=1)
+    pront = [buildingType,row.loc[0,'departlocation'],area,rooms,bathrooms]
     return pront
 
 
 def estimateValue(*param):
-    log.info(f"Function %s invoked",estimateValue.__name__)
-    log.info(f'Param of function %s -> %s',estimateValue.__name__,param)
+    log.info(f"Main -> %s - Function %s invoked",__name__,estimateValue.__name__)
+    log.info(f'Main -> %s - Param of function %s -> %s',__name__,estimateValue.__name__,param)
     pront = generateDataArray(*param)
     return str(pront)
 

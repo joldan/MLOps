@@ -42,8 +42,9 @@ class LocationManager:
 
     def loadDepartmentLocation(self, path='deploc.json'):
         with open(self.confPath+path) as json_file:
-            deploc = json.load(json_file)
-            self.departmentlocation = deploc
+            data = json.load(json_file)
+            self.departmentlocation = data["deploc"]
+            self.department = data["dep"]
 
     def getDepartmentLocation(self):
         return self.departmentlocation
