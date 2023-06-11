@@ -4,6 +4,7 @@ from sys import path
 import re
 import json
 import os
+import numpy as np
 from os.path import dirname, abspath
 from LocationManager import LocationManager
 
@@ -29,8 +30,9 @@ def cleanData(row):
     return row
 
 def removeUnusedAndNullRows(df):
+    df2 = df.fillna(np.nan)
     df2 = df.dropna()
-    return df[['id', 'area','rooms','bathrooms','building_type','department_location', 'price']]
+    return df2[['id', 'area','rooms','bathrooms','building_type','department_location', 'price']]
 
 def saveCleanData(df, path='cleanData.csv'):
     df.to_csv(path, index=False)
@@ -95,7 +97,7 @@ def cleanDepartmentLocation(row):
         return data
     else:
         log.info(f'Main -> %s - Function %s invoke - Clean Department Location failed to validate: %s and %s',__name__,cleanDepartmentLocation.__name__,row['department'],row['location'])
-        return -1
+        return None
 
 def cleanPrice(price):
     try:
