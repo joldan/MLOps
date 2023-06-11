@@ -3,14 +3,14 @@
 # Library
 import json
 import gradio as gr
-#import logging as log
 from os.path import dirname, abspath
 import datetime as time
 from logging.handlers import RotatingFileHandler
 from sys import path
 import pandas as pd
+import numpy as np
+from PIL import Image
 rootPath = dirname(dirname(abspath(__file__)))
-# Import LocationManager
 dataCleanPath= rootPath+"/dataclean/"
 path.append(dataCleanPath)
 from LocationManager import *
@@ -29,8 +29,6 @@ logName = "app.log"
 
 
 # Define system log
-#rf_handler = RotatingFileHandler((fastapiPath+"/"+logName), maxBytes=10_000_000, backupCount=5, encoding='utf-8', mode='w')
-#log.basicConfig(encoding='utf-8',format='%(asctime)s %(message)s', level=log.INFO,handlers=[rf_handler])
 log.info(f"Main -> %s - Start Gradio APP",__name__)
 
 # Generate Location Array
@@ -68,13 +66,13 @@ def clearInput():
             gr.Slider.update(value=0),
             gr.Slider.update(value=1),
             gr.Slider.update(value=25),
-            gr.Textbox.update(value="")
+            gr.Textbox.update(value=""),
+            gr.Image.update(value=None)
             ]
     return cle
 
 def generateDataArray(*param):
     log.info(f"Main -> %s - Function %s invoked",__name__,generateDataArray.__name__)
-    log.info(f'Main -> %s - Param of function %s -> %s',__name__,generateDataArray.__name__,param)
     buildingType = param[0]
     departmentLocation = param[1]
     location = param[2]
@@ -83,19 +81,17 @@ def generateDataArray(*param):
     area = param[5]
     row = pd.DataFrame({"department":[departmentLocation],"location":[location],'departlocation':[0]})
     row['departlocation'] = row.apply(cleanDepartmentLocation, axis=1)
-    pront = [buildingType,row.loc[0,'departlocation'],area,rooms,bathrooms]
+    btype = 1 if buildingType == "Casa" else 0
+    pront = [param[6],[area,rooms,bathrooms,btype,row.loc[0,'departlocation']]]
     return pront
 
 
 def estimateValue(*param):
     log.info(f"Main -> %s - Function %s invoked",__name__,estimateValue.__name__)
-    log.info(f'Main -> %s - Param of function %s -> %s',__name__,estimateValue.__name__,param)
     pront = generateDataArray(*param)
-    return str(pront)
+    log.info(f'Main -> %s - Return %s -> %s, img shape -> %s',__name__,estimateValue.__name__,pront[1],np.shape(pront[0]))
+    return str(pront[1])
 
-def locatioToInt(deparment, log):
-    deploc = department + loc
-    deploc = deploc.lower().replace(' ','')
 
 
 with gr.Blocks() as appPredictPrice:
@@ -110,7 +106,7 @@ with gr.Blocks() as appPredictPrice:
                     departmentLocation = gr.Dropdown(choices=department, label="Departameto",value=department[0],interactive=True) 
                     location = gr.Dropdown(choices=neighbor, label="Barrio",interactive=True,value=neighbor[0])
             with gr.Column():
-                image = image_input = gr.Image()
+                image_input = gr.Image(type="pil",shape=(256, 192))
         with gr.Row():
             rooms = gr.Slider(0,5,step=1,label="Dormitorios",info="Seleccionar entre 0 y 5+",interactive=True)
             bathrooms = gr.Slider(1,4,step=1,label="Baños",info="Seleccionar entre 1 y 4+",interactive=True)
@@ -123,7 +119,6 @@ with gr.Blocks() as appPredictPrice:
 	#Tab de predicción por lote
     with gr.Tab("Predicción en lotes"):
         with gr.Row():
-            image_input = gr.Image()
             image_output = gr.Image()
         image_button = gr.Button("Flip")
 
@@ -132,10 +127,10 @@ with gr.Blocks() as appPredictPrice:
 
 
     departmentLocation.change(updateNeighbor, departmentLocation,location)
-    param = [buildingType,departmentLocation,location,rooms,bathrooms,area]
+    param = [buildingType,departmentLocation,location,rooms,bathrooms,area,image_input]
     button_predict.click(estimateValue,param,text_predict)
     # Clean the inputs
-    button_clear.click(clearInput,[],[buildingType,departmentLocation,location,rooms,bathrooms,area,text_predict])
+    button_clear.click(clearInput,[],[buildingType,departmentLocation,location,rooms,bathrooms,area,text_predict,image_input])
     #text_button.click(flip_text, inputs=text_input, outputs=text_output)
     #image_button.click(flip_image, inputs=image_input, outputs=image_output)
 

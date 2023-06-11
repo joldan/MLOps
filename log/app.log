@@ -1,126 +1,75 @@
-2023-06-11 14:33:34,773 Main -> myLog - Start Log
-2023-06-11 14:33:34,773 Main -> appPredictPrice - Start Gradio APP
-2023-06-11 14:33:34,777 Main -> appPredictPrice - Loading Dropdown atributes from options.json
-2023-06-11 14:33:34,777 Main -> appPredictPrice - Loading department and neighbor
-2023-06-11 14:33:35,667 Main -> mainapp - Mount Gradio APP
-2023-06-11 14:34:41,998 Main -> appPredictPrice - Function estimateValue invoked
-2023-06-11 14:34:41,999 Main -> appPredictPrice - Param of function estimateValue -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
-2023-06-11 14:34:41,999 Main -> appPredictPrice - Function generateDataArray invoked
-2023-06-11 14:34:41,999 Main -> appPredictPrice - Param of function generateDataArray -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
-2023-06-11 14:43:56,512 Main -> myLog - Start Log
-2023-06-11 14:43:56,515 Main -> dataclean_v2 - DataClean Loading
-2023-06-11 14:43:56,515 Main -> appPredictPrice - Start Gradio APP
-2023-06-11 14:43:56,517 Main -> appPredictPrice - Loading Dropdown atributes from options.json
-2023-06-11 14:43:56,517 Main -> appPredictPrice - Loading department and neighbor
-2023-06-11 14:43:57,325 Main -> mainapp - Mount Gradio APP
-2023-06-11 14:43:59,887 Main -> appPredictPrice - Function estimateValue invoked
-2023-06-11 14:43:59,887 Main -> appPredictPrice - Param of function estimateValue -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
-2023-06-11 14:43:59,887 Main -> appPredictPrice - Function generateDataArray invoked
-2023-06-11 14:43:59,887 Main -> appPredictPrice - Param of function generateDataArray -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
-2023-06-11 14:43:59,894 Main -> dataclean_v2 - deploc-value: ArtigasArtigas
-2023-06-11 14:43:59,894 Clean Department Location failed to validate: Artigas and Artigas
-2023-06-11 14:55:16,874 Main -> myLog - Start Log
-2023-06-11 14:55:16,875 Main -> dataclean_v2 - DataClean Loading
-2023-06-11 14:55:16,875 Main -> appPredictPrice - Start Gradio APP
-2023-06-11 14:55:16,878 Main -> appPredictPrice - Loading Dropdown atributes from options.json
-2023-06-11 14:55:16,878 Main -> appPredictPrice - Loading department and neighbor
-2023-06-11 14:55:17,762 Main -> mainapp - Mount Gradio APP
-2023-06-11 14:55:20,637 Main -> appPredictPrice - Function estimateValue invoked
-2023-06-11 14:55:20,637 Main -> appPredictPrice - Param of function estimateValue -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
-2023-06-11 14:55:20,637 Main -> appPredictPrice - Function generateDataArray invoked
-2023-06-11 14:55:20,638 Main -> appPredictPrice - Param of function generateDataArray -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
-2023-06-11 14:55:20,642 Main -> dataclean_v2 - deploc-value: artigasartigas
-2023-06-11 14:55:20,642 Main -> dataclean_v2 - dep_loc: {'dep': ['Artigas', 'Canelones', 'Cerro Largo', 'Colonia', 'Durazno', 'Flores', 'Florida', 'Lavalleja', 'Maldonad', 'Montevideo', 'Paysandu', 'Rio Negro', 'Rivera', 'Rocha', 'Salto', 'San Jose', 'Soriano', 'Tacuarembo', 'Trenita Y Tres'], 'deploc': ['artigasartigas', 'artigasotros', 'caneloneselpinar', 'canelonessolymar', 'caneloneslatahona', 'canelonesparquedelplata', 'canelonesatlántida', 'canelonesciudaddelacosta', 'canelonesbarradecarrasco', 'canelonesparquemiramar', 'canelonesshangrilá', 'caneloneslafloresta', 'caneloneslagomar', 'caneloneslomasdesolymar', 'canelonessanjosédecarrasco', 'canelonessalinas', 'canelonespando', 'canelonescanelones', 'caneloneslaspiedras', 'canelonessanluis', 'canelonesbarrosblancos', 'canelonespinamar', 'canelonesmédanosdesolymar', 'canelonescolonianicolich', 'caneloneslastoscas', 'canelonesprogreso', 'caneloneslapaz', 'canelonescostaazul', 'canelonesvillaargentina', 'canelonesneptunia', 'canelonespasocarrasco', 'canelonesmarindia', 'canelonesguazúvirá', 'canelonesjaureguiberry', 'canelonesbellohorizonte', 'canelonessantalucía', 'canelonesjoaquínsuárez', 'canelonessantaana', 'canelonesmontesdesolymar', 'canelonesparquedesolymar', 'canelonesloscerrillos', 'canelonessantalucíadeleste', 'canelonessoca', 'canelonescuchillaalta', 'canelonescolinasdesolymar', 'canelonesaraminda', 'caneloneslostitanes', 'canelonessauce', 'canelonestoledo', 'canelonestala', 'canelonesvillaaeroparque', 'canelonessanramón', 'canelonessanjacinto', 'caneloneslasvegas', 'caneloneslatuna', 'canelonesbalnearioargentino', 'canelonesaguascorrientes', 'canelonescerrillos', 'canelonesjuanicó', 'canelonesempalmeolmos', 'canelonesfortíndesantarosa', 'caneloneselcolorado', 'caneloneseldorado', 'canelonessanbautista', 'canelonessierradelmar', 'cerrolargomelo', 'cerrolargootros', 'coloniacarmelo', 'coloniacolonia', 'coloniacoloniasuiza', 'coloniajuanlacaze', 'colonialagunadelospatos', 'colonianuevahelvecia', 'colonianuevapalmira', 'coloniarosario', 'coloniatarariras', 'coloniavaldense', 'coloniaotros', 'duraznodurazno', 'duraznosarandídelyi', 'duraznootros', 'floresflores', 'floresotros', 'floridaflorida', 'floridaotros', 'lavallejaminas', 'lavallejavillaserrana', 'lavallejaotros', 'maldonadabradeperdomo', 'maldonadaiguá', 'maldonadaltosdelaguna', 'maldonadarenasdejoséignacio', 'maldonadbalneariobuenosaires', 'maldonadbarriocordoba', 'maldonadbellavista', 'maldonadbeverlyhills', 'maldonadbikini', 'maldonadcaminoeguzquiza', 'maldonadcantegril', 'maldonadcerropelado', 'maldonadcerrosazules', 'maldonadchihuahua', 'maldonadclubdellago', 'maldonadclubdelmar', 'maldonadedenrock', 'maldonadelchorro', 'maldonadelquijote', 'maldonadeltesoro', 'maldonadgolf', 'maldonadgregorioaznárez', 'maldonadjardinesdecordoba', 'maldonadjoséignacio', 'maldonadlaarbolada', 'maldonadlabarra', 'maldonadlaresidence', 'maldonadlagodeloscisnes', 'maldonadlagunablanca', 'maldonadlagunadeldiario', 'maldonadlagunagarzón', 'maldonadlapataia', 'maldonadlasdelicias', 'maldonadlasflores', 'maldonadlasgrutas', 'maldonadlausana', 'maldonadlomodelaballena', 'maldonadlugano', 'maldonadlussich', 'maldonadmaldonado', 'maldonadmanantiales', 'maldonadmarly', 'maldonadmontoya', 'maldonadoceanpark', 'maldonadpandeazúcar', 'maldonadparqueburnett', 'maldonadpenínsula', 'maldonadpiedrasdelchileno', 'maldonadpinardelfaro', 'maldonadpinares', 'maldonadpiriápolis', 'maldonadplayabrava', 'maldonadplayagrande', 'maldonadplayahermosa', 'maldonadplayamansa', 'maldonadplayaverde', 'maldonadportales', 'maldonadportezuelo', 'maldonadproadelmar', 'maldonadpuebloedén', 'maldonadpueblogarzon', 'maldonadpueblomio', 'maldonadpuntaballena', 'maldonadpuntacolorada', 'maldonadpuntadeleste', 'maldonadpuntafría', 'maldonadpuntanegra', 'maldonadpuntapiedras', 'maldonadrincóndelindio', 'maldonadroosevelt', 'maldonadsancarlos', 'maldonadsanfrancisco', 'maldonadsanrafael', 'maldonadsanvicente', 'maldonadsantamonica', 'maldonadsaucedeportezuelo', 'maldonadshopping', 'maldonadsolanas', 'maldonadsolís', 'maldonadtiotom', 'maldonadverdemora', 'maldonadotros', 'montevideoaguada', 'montevideoatahualpa', 'montevideobelvedere', 'montevideobrazooriental', 'montevideobuceo', 'montevideocarrasco', 'montevideocarrasconorte', 'montevideocasavalle', 'montevideocentro', 'montevideocerrito', 'montevideocerro', 'montevideociudadvieja', 'montevideocnomaldonado', 'montevideocolon', 'montevideocordon', 'montevideogoes', 'montevideoituzaingo', 'montevideoj.hipodromo', 'montevideojacintovera', 'montevideolablanqueada', 'montevideolacomercial', 'montevideolateja', 'montevideolasacacias', 'montevideolezica', 'montevideomalvin', 'montevideomalvinnorte', 'montevideomanga', 'montevideomaroñas', 'montevideomelilla', 'montevideonuevoparis', 'montevideopajasblancas', 'montevideopalermo', 'montevideoparquebatlle', 'montevideoparquerodo', 'montevideopasocarrasco', 'montevideopasodelaarena', 'montevideopasomolino', 'montevideopeñarol', 'montevideoperezcastellanos', 'montevideopiedrasblancas', 'montevideopocitos', 'montevideopocitosnuevo', 'montevideoprado', 'montevideopradonorte', 'montevideopuertobuceo', 'montevideopuntacarretas', 'montevideopuntagorda', 'montevideopuntarieles', 'montevideoreducto', 'montevideosayago', 'montevideotrescruces', 'montevideounion', 'montevideovillaespañola', 'montevideootros', 'paysandupaysandu', 'paysanduotros', 'rionegrofraybentos', 'rionegrootros', 'riverarivera', 'riveravichadero', 'riveraotros', 'rochaaguasdulces', 'rochaarachania', 'rochabarradevalizas', 'rochabarradelchuy', 'rochacabopolonio', 'rochacostaazul', 'rochalacoronilla', 'rochalaesmeralda', 'rochalapaloma', 'rochalapedrera', 'rochalasgarzas', 'rochaoceaniadelpolonio', 'rochapuntadeldiablo', 'rocharocha', 'rochaotros', 'saltosalto', 'saltootros', 'sanjosearroyodelavirgen', 'sanjoseciudaddelplata', 'sanjoseecildapaullier', 'sanjoseplayapascual', 'sanjosesanjosé', 'sanjosevillarodríguez', 'sanjoseotros', 'sorianodolores', 'sorianomercedes', 'sorianovillasoriano', 'sorianootros', 'tacuarembosangregoriodepolanco', 'tacuarembotacuarembó', 'tacuarembootros', 'trenitaytrestreintaytres', 'trenitaytresotros']}
-2023-06-11 14:55:20,643 Clean Department Location failed to validate: Artigas and Artigas
-2023-06-11 15:05:36,124 Main -> myLog - Start Log
-2023-06-11 15:05:36,124 Main -> dataclean_v2 - DataClean Loading
-2023-06-11 15:05:36,124 Main -> appPredictPrice - Start Gradio APP
-2023-06-11 15:08:24,851 Main -> myLog - Start Log
-2023-06-11 15:08:24,852 Main -> dataclean_v2 - DataClean Loading
-2023-06-11 15:08:24,852 Main -> appPredictPrice - Start Gradio APP
-2023-06-11 15:10:14,907 Main -> myLog - Start Log
-2023-06-11 15:10:14,908 Main -> dataclean_v2 - DataClean Loading
-2023-06-11 15:10:14,908 Main -> appPredictPrice - Start Gradio APP
-2023-06-11 15:10:14,910 Main -> appPredictPrice - Loading Dropdown atributes from options.json
-2023-06-11 15:10:14,911 Main -> appPredictPrice - Loading department and neighbor
-2023-06-11 15:10:15,785 Main -> mainapp - Mount Gradio APP
-2023-06-11 15:10:22,223 Main -> appPredictPrice - Function estimateValue invoked
-2023-06-11 15:10:22,223 Main -> appPredictPrice - Param of function estimateValue -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
-2023-06-11 15:10:22,223 Main -> appPredictPrice - Function generateDataArray invoked
-2023-06-11 15:10:22,224 Main -> appPredictPrice - Param of function generateDataArray -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
-2023-06-11 15:10:22,229 Main -> dataclean_v2 - deploc-value: artigasartigas
-2023-06-11 15:10:22,229 Main -> dataclean_v2 - dep_loc: ['artigasartigas', 'artigasotros', 'caneloneselpinar', 'canelonessolymar', 'caneloneslatahona', 'canelonesparquedelplata', 'canelonesatlántida', 'canelonesciudaddelacosta', 'canelonesbarradecarrasco', 'canelonesparquemiramar', 'canelonesshangrilá', 'caneloneslafloresta', 'caneloneslagomar', 'caneloneslomasdesolymar', 'canelonessanjosédecarrasco', 'canelonessalinas', 'canelonespando', 'canelonescanelones', 'caneloneslaspiedras', 'canelonessanluis', 'canelonesbarrosblancos', 'canelonespinamar', 'canelonesmédanosdesolymar', 'canelonescolonianicolich', 'caneloneslastoscas', 'canelonesprogreso', 'caneloneslapaz', 'canelonescostaazul', 'canelonesvillaargentina', 'canelonesneptunia', 'canelonespasocarrasco', 'canelonesmarindia', 'canelonesguazúvirá', 'canelonesjaureguiberry', 'canelonesbellohorizonte', 'canelonessantalucía', 'canelonesjoaquínsuárez', 'canelonessantaana', 'canelonesmontesdesolymar', 'canelonesparquedesolymar', 'canelonesloscerrillos', 'canelonessantalucíadeleste', 'canelonessoca', 'canelonescuchillaalta', 'canelonescolinasdesolymar', 'canelonesaraminda', 'caneloneslostitanes', 'canelonessauce', 'canelonestoledo', 'canelonestala', 'canelonesvillaaeroparque', 'canelonessanramón', 'canelonessanjacinto', 'caneloneslasvegas', 'caneloneslatuna', 'canelonesbalnearioargentino', 'canelonesaguascorrientes', 'canelonescerrillos', 'canelonesjuanicó', 'canelonesempalmeolmos', 'canelonesfortíndesantarosa', 'caneloneselcolorado', 'caneloneseldorado', 'canelonessanbautista', 'canelonessierradelmar', 'cerrolargomelo', 'cerrolargootros', 'coloniacarmelo', 'coloniacolonia', 'coloniacoloniasuiza', 'coloniajuanlacaze', 'colonialagunadelospatos', 'colonianuevahelvecia', 'colonianuevapalmira', 'coloniarosario', 'coloniatarariras', 'coloniavaldense', 'coloniaotros', 'duraznodurazno', 'duraznosarandídelyi', 'duraznootros', 'floresflores', 'floresotros', 'floridaflorida', 'floridaotros', 'lavallejaminas', 'lavallejavillaserrana', 'lavallejaotros', 'maldonadabradeperdomo', 'maldonadaiguá', 'maldonadaltosdelaguna', 'maldonadarenasdejoséignacio', 'maldonadbalneariobuenosaires', 'maldonadbarriocordoba', 'maldonadbellavista', 'maldonadbeverlyhills', 'maldonadbikini', 'maldonadcaminoeguzquiza', 'maldonadcantegril', 'maldonadcerropelado', 'maldonadcerrosazules', 'maldonadchihuahua', 'maldonadclubdellago', 'maldonadclubdelmar', 'maldonadedenrock', 'maldonadelchorro', 'maldonadelquijote', 'maldonadeltesoro', 'maldonadgolf', 'maldonadgregorioaznárez', 'maldonadjardinesdecordoba', 'maldonadjoséignacio', 'maldonadlaarbolada', 'maldonadlabarra', 'maldonadlaresidence', 'maldonadlagodeloscisnes', 'maldonadlagunablanca', 'maldonadlagunadeldiario', 'maldonadlagunagarzón', 'maldonadlapataia', 'maldonadlasdelicias', 'maldonadlasflores', 'maldonadlasgrutas', 'maldonadlausana', 'maldonadlomodelaballena', 'maldonadlugano', 'maldonadlussich', 'maldonadmaldonado', 'maldonadmanantiales', 'maldonadmarly', 'maldonadmontoya', 'maldonadoceanpark', 'maldonadpandeazúcar', 'maldonadparqueburnett', 'maldonadpenínsula', 'maldonadpiedrasdelchileno', 'maldonadpinardelfaro', 'maldonadpinares', 'maldonadpiriápolis', 'maldonadplayabrava', 'maldonadplayagrande', 'maldonadplayahermosa', 'maldonadplayamansa', 'maldonadplayaverde', 'maldonadportales', 'maldonadportezuelo', 'maldonadproadelmar', 'maldonadpuebloedén', 'maldonadpueblogarzon', 'maldonadpueblomio', 'maldonadpuntaballena', 'maldonadpuntacolorada', 'maldonadpuntadeleste', 'maldonadpuntafría', 'maldonadpuntanegra', 'maldonadpuntapiedras', 'maldonadrincóndelindio', 'maldonadroosevelt', 'maldonadsancarlos', 'maldonadsanfrancisco', 'maldonadsanrafael', 'maldonadsanvicente', 'maldonadsantamonica', 'maldonadsaucedeportezuelo', 'maldonadshopping', 'maldonadsolanas', 'maldonadsolís', 'maldonadtiotom', 'maldonadverdemora', 'maldonadotros', 'montevideoaguada', 'montevideoatahualpa', 'montevideobelvedere', 'montevideobrazooriental', 'montevideobuceo', 'montevideocarrasco', 'montevideocarrasconorte', 'montevideocasavalle', 'montevideocentro', 'montevideocerrito', 'montevideocerro', 'montevideociudadvieja', 'montevideocnomaldonado', 'montevideocolon', 'montevideocordon', 'montevideogoes', 'montevideoituzaingo', 'montevideoj.hipodromo', 'montevideojacintovera', 'montevideolablanqueada', 'montevideolacomercial', 'montevideolateja', 'montevideolasacacias', 'montevideolezica', 'montevideomalvin', 'montevideomalvinnorte', 'montevideomanga', 'montevideomaroñas', 'montevideomelilla', 'montevideonuevoparis', 'montevideopajasblancas', 'montevideopalermo', 'montevideoparquebatlle', 'montevideoparquerodo', 'montevideopasocarrasco', 'montevideopasodelaarena', 'montevideopasomolino', 'montevideopeñarol', 'montevideoperezcastellanos', 'montevideopiedrasblancas', 'montevideopocitos', 'montevideopocitosnuevo', 'montevideoprado', 'montevideopradonorte', 'montevideopuertobuceo', 'montevideopuntacarretas', 'montevideopuntagorda', 'montevideopuntarieles', 'montevideoreducto', 'montevideosayago', 'montevideotrescruces', 'montevideounion', 'montevideovillaespañola', 'montevideootros', 'paysandupaysandu', 'paysanduotros', 'rionegrofraybentos', 'rionegrootros', 'riverarivera', 'riveravichadero', 'riveraotros', 'rochaaguasdulces', 'rochaarachania', 'rochabarradevalizas', 'rochabarradelchuy', 'rochacabopolonio', 'rochacostaazul', 'rochalacoronilla', 'rochalaesmeralda', 'rochalapaloma', 'rochalapedrera', 'rochalasgarzas', 'rochaoceaniadelpolonio', 'rochapuntadeldiablo', 'rocharocha', 'rochaotros', 'saltosalto', 'saltootros', 'sanjosearroyodelavirgen', 'sanjoseciudaddelplata', 'sanjoseecildapaullier', 'sanjoseplayapascual', 'sanjosesanjosé', 'sanjosevillarodríguez', 'sanjoseotros', 'sorianodolores', 'sorianomercedes', 'sorianovillasoriano', 'sorianootros', 'tacuarembosangregoriodepolanco', 'tacuarembotacuarembó', 'tacuarembootros', 'trenitaytrestreintaytres', 'trenitaytresotros']
-2023-06-11 15:18:56,873 Main -> myLog - Start Log
-2023-06-11 15:18:56,874 Main -> dataclean_v2 - DataClean Loading
-2023-06-11 15:18:56,874 Main -> appPredictPrice - Start Gradio APP
-2023-06-11 15:18:56,876 Main -> appPredictPrice - Loading Dropdown atributes from options.json
-2023-06-11 15:18:56,877 Main -> appPredictPrice - Loading department and neighbor
-2023-06-11 15:18:57,736 Main -> mainapp - Mount Gradio APP
-2023-06-11 15:19:02,239 Main -> appPredictPrice - Function estimateValue invoked
-2023-06-11 15:19:02,240 Main -> appPredictPrice - Param of function estimateValue -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
-2023-06-11 15:19:02,240 Main -> appPredictPrice - Function generateDataArray invoked
-2023-06-11 15:19:02,240 Main -> appPredictPrice - Param of function generateDataArray -> ('Casa', 'Artigas', 'Artigas', 0, 1, 25)
-2023-06-11 15:19:02,248 Main -> dataclean_v2 - deploc-value: artigasartigas
-2023-06-11 15:19:02,248 Main -> dataclean_v2 - dep_loc: ['artigasartigas', 'artigasotros', 'caneloneselpinar', 'canelonessolymar', 'caneloneslatahona', 'canelonesparquedelplata', 'canelonesatlántida', 'canelonesciudaddelacosta', 'canelonesbarradecarrasco', 'canelonesparquemiramar', 'canelonesshangrilá', 'caneloneslafloresta', 'caneloneslagomar', 'caneloneslomasdesolymar', 'canelonessanjosédecarrasco', 'canelonessalinas', 'canelonespando', 'canelonescanelones', 'caneloneslaspiedras', 'canelonessanluis', 'canelonesbarrosblancos', 'canelonespinamar', 'canelonesmédanosdesolymar', 'canelonescolonianicolich', 'caneloneslastoscas', 'canelonesprogreso', 'caneloneslapaz', 'canelonescostaazul', 'canelonesvillaargentina', 'canelonesneptunia', 'canelonespasocarrasco', 'canelonesmarindia', 'canelonesguazúvirá', 'canelonesjaureguiberry', 'canelonesbellohorizonte', 'canelonessantalucía', 'canelonesjoaquínsuárez', 'canelonessantaana', 'canelonesmontesdesolymar', 'canelonesparquedesolymar', 'canelonesloscerrillos', 'canelonessantalucíadeleste', 'canelonessoca', 'canelonescuchillaalta', 'canelonescolinasdesolymar', 'canelonesaraminda', 'caneloneslostitanes', 'canelonessauce', 'canelonestoledo', 'canelonestala', 'canelonesvillaaeroparque', 'canelonessanramón', 'canelonessanjacinto', 'caneloneslasvegas', 'caneloneslatuna', 'canelonesbalnearioargentino', 'canelonesaguascorrientes', 'canelonescerrillos', 'canelonesjuanicó', 'canelonesempalmeolmos', 'canelonesfortíndesantarosa', 'caneloneselcolorado', 'caneloneseldorado', 'canelonessanbautista', 'canelonessierradelmar', 'cerrolargomelo', 'cerrolargootros', 'coloniacarmelo', 'coloniacolonia', 'coloniacoloniasuiza', 'coloniajuanlacaze', 'colonialagunadelospatos', 'colonianuevahelvecia', 'colonianuevapalmira', 'coloniarosario', 'coloniatarariras', 'coloniavaldense', 'coloniaotros', 'duraznodurazno', 'duraznosarandídelyi', 'duraznootros', 'floresflores', 'floresotros', 'floridaflorida', 'floridaotros', 'lavallejaminas', 'lavallejavillaserrana', 'lavallejaotros', 'maldonadabradeperdomo', 'maldonadaiguá', 'maldonadaltosdelaguna', 'maldonadarenasdejoséignacio', 'maldonadbalneariobuenosaires', 'maldonadbarriocordoba', 'maldonadbellavista', 'maldonadbeverlyhills', 'maldonadbikini', 'maldonadcaminoeguzquiza', 'maldonadcantegril', 'maldonadcerropelado', 'maldonadcerrosazules', 'maldonadchihuahua', 'maldonadclubdellago', 'maldonadclubdelmar', 'maldonadedenrock', 'maldonadelchorro', 'maldonadelquijote', 'maldonadeltesoro', 'maldonadgolf', 'maldonadgregorioaznárez', 'maldonadjardinesdecordoba', 'maldonadjoséignacio', 'maldonadlaarbolada', 'maldonadlabarra', 'maldonadlaresidence', 'maldonadlagodeloscisnes', 'maldonadlagunablanca', 'maldonadlagunadeldiario', 'maldonadlagunagarzón', 'maldonadlapataia', 'maldonadlasdelicias', 'maldonadlasflores', 'maldonadlasgrutas', 'maldonadlausana', 'maldonadlomodelaballena', 'maldonadlugano', 'maldonadlussich', 'maldonadmaldonado', 'maldonadmanantiales', 'maldonadmarly', 'maldonadmontoya', 'maldonadoceanpark', 'maldonadpandeazúcar', 'maldonadparqueburnett', 'maldonadpenínsula', 'maldonadpiedrasdelchileno', 'maldonadpinardelfaro', 'maldonadpinares', 'maldonadpiriápolis', 'maldonadplayabrava', 'maldonadplayagrande', 'maldonadplayahermosa', 'maldonadplayamansa', 'maldonadplayaverde', 'maldonadportales', 'maldonadportezuelo', 'maldonadproadelmar', 'maldonadpuebloedén', 'maldonadpueblogarzon', 'maldonadpueblomio', 'maldonadpuntaballena', 'maldonadpuntacolorada', 'maldonadpuntadeleste', 'maldonadpuntafría', 'maldonadpuntanegra', 'maldonadpuntapiedras', 'maldonadrincóndelindio', 'maldonadroosevelt', 'maldonadsancarlos', 'maldonadsanfrancisco', 'maldonadsanrafael', 'maldonadsanvicente', 'maldonadsantamonica', 'maldonadsaucedeportezuelo', 'maldonadshopping', 'maldonadsolanas', 'maldonadsolís', 'maldonadtiotom', 'maldonadverdemora', 'maldonadotros', 'montevideoaguada', 'montevideoatahualpa', 'montevideobelvedere', 'montevideobrazooriental', 'montevideobuceo', 'montevideocarrasco', 'montevideocarrasconorte', 'montevideocasavalle', 'montevideocentro', 'montevideocerrito', 'montevideocerro', 'montevideociudadvieja', 'montevideocnomaldonado', 'montevideocolon', 'montevideocordon', 'montevideogoes', 'montevideoituzaingo', 'montevideoj.hipodromo', 'montevideojacintovera', 'montevideolablanqueada', 'montevideolacomercial', 'montevideolateja', 'montevideolasacacias', 'montevideolezica', 'montevideomalvin', 'montevideomalvinnorte', 'montevideomanga', 'montevideomaroñas', 'montevideomelilla', 'montevideonuevoparis', 'montevideopajasblancas', 'montevideopalermo', 'montevideoparquebatlle', 'montevideoparquerodo', 'montevideopasocarrasco', 'montevideopasodelaarena', 'montevideopasomolino', 'montevideopeñarol', 'montevideoperezcastellanos', 'montevideopiedrasblancas', 'montevideopocitos', 'montevideopocitosnuevo', 'montevideoprado', 'montevideopradonorte', 'montevideopuertobuceo', 'montevideopuntacarretas', 'montevideopuntagorda', 'montevideopuntarieles', 'montevideoreducto', 'montevideosayago', 'montevideotrescruces', 'montevideounion', 'montevideovillaespañola', 'montevideootros', 'paysandupaysandu', 'paysanduotros', 'rionegrofraybentos', 'rionegrootros', 'riverarivera', 'riveravichadero', 'riveraotros', 'rochaaguasdulces', 'rochaarachania', 'rochabarradevalizas', 'rochabarradelchuy', 'rochacabopolonio', 'rochacostaazul', 'rochalacoronilla', 'rochalaesmeralda', 'rochalapaloma', 'rochalapedrera', 'rochalasgarzas', 'rochaoceaniadelpolonio', 'rochapuntadeldiablo', 'rocharocha', 'rochaotros', 'saltosalto', 'saltootros', 'sanjosearroyodelavirgen', 'sanjoseciudaddelplata', 'sanjoseecildapaullier', 'sanjoseplayapascual', 'sanjosesanjosé', 'sanjosevillarodríguez', 'sanjoseotros', 'sorianodolores', 'sorianomercedes', 'sorianovillasoriano', 'sorianootros', 'tacuarembosangregoriodepolanco', 'tacuarembotacuarembó', 'tacuarembootros', 'trenitaytrestreintaytres', 'trenitaytresotros']
-2023-06-11 15:19:02,249 Main -> dataclean_v2 - Function cleanDepartmentLocation invoke - DepLoc index:0
-2023-06-11 15:23:40,514 Main -> myLog - Start Log
-2023-06-11 15:23:40,515 Main -> dataclean_v2 - DataClean Loading
-2023-06-11 15:23:40,516 Main -> appPredictPrice - Start Gradio APP
-2023-06-11 15:23:40,518 Main -> appPredictPrice - Loading Dropdown atributes from options.json
-2023-06-11 15:23:40,518 Main -> appPredictPrice - Loading department and neighbor
-2023-06-11 15:23:41,382 Main -> mainapp - Mount Gradio APP
-2023-06-11 15:23:42,564 Main -> appPredictPrice - Function estimateValue invoked
-2023-06-11 15:23:42,565 Main -> appPredictPrice - Param of function estimateValue -> ('Casa', 'Artigas', 'Otros', 0, 1, 25)
-2023-06-11 15:23:42,565 Main -> appPredictPrice - Function generateDataArray invoked
-2023-06-11 15:23:42,565 Main -> appPredictPrice - Param of function generateDataArray -> ('Casa', 'Artigas', 'Otros', 0, 1, 25)
-2023-06-11 15:23:42,571 Main -> dataclean_v2 - Function cleanDepartmentLocation invoke - DepLoc index:1
-2023-06-11 15:23:42,573 Main -> appPredictPrice - RowData ->   department  location
-0    Artigas         1
-2023-06-11 15:25:13,854 Main -> myLog - Start Log
-2023-06-11 15:25:13,855 Main -> dataclean_v2 - DataClean Loading
-2023-06-11 15:25:13,855 Main -> appPredictPrice - Start Gradio APP
-2023-06-11 15:25:13,858 Main -> appPredictPrice - Loading Dropdown atributes from options.json
-2023-06-11 15:25:13,858 Main -> appPredictPrice - Loading department and neighbor
-2023-06-11 15:25:14,662 Main -> mainapp - Mount Gradio APP
-2023-06-11 15:25:15,064 Main -> appPredictPrice - Function updateNeighbor invoked
-2023-06-11 15:25:19,146 Main -> appPredictPrice - Function updateNeighbor invoked
-2023-06-11 15:25:26,395 Main -> appPredictPrice - Function estimateValue invoked
-2023-06-11 15:25:26,395 Main -> appPredictPrice - Param of function estimateValue -> ('Casa', 'Montevideo', 'Brazo Oriental', 0, 1, 25)
-2023-06-11 15:25:26,396 Main -> appPredictPrice - Function generateDataArray invoked
-2023-06-11 15:25:26,396 Main -> appPredictPrice - Param of function generateDataArray -> ('Casa', 'Montevideo', 'Brazo Oriental', 0, 1, 25)
-2023-06-11 15:25:26,400 Main -> dataclean_v2 - Function cleanDepartmentLocation invoke - DepLoc index:173
-2023-06-11 15:25:26,402 Main -> appPredictPrice - RowData -> 0    173
-Name: departlocation, dtype: int64
-2023-06-11 15:29:36,974 Main -> myLog - Start Log
-2023-06-11 15:29:36,975 Main -> dataclean_v2 - DataClean Loading
-2023-06-11 15:29:36,976 Main -> appPredictPrice - Start Gradio APP
-2023-06-11 15:29:36,978 Main -> appPredictPrice - Loading Dropdown atributes from options.json
-2023-06-11 15:29:36,978 Main -> appPredictPrice - Loading department and neighbor
-2023-06-11 15:29:37,786 Main -> mainapp - Mount Gradio APP
-2023-06-11 15:29:44,372 Main -> appPredictPrice - Function estimateValue invoked
-2023-06-11 15:29:44,372 Main -> appPredictPrice - Param of function estimateValue -> ('Casa', 'Artigas', 'Otros', 0, 1, 25)
-2023-06-11 15:29:44,373 Main -> appPredictPrice - Function generateDataArray invoked
-2023-06-11 15:29:44,373 Main -> appPredictPrice - Param of function generateDataArray -> ('Casa', 'Artigas', 'Otros', 0, 1, 25)
-2023-06-11 15:33:06,343 Main -> myLog - Start Log
-2023-06-11 15:33:06,344 Main -> dataclean_v2 - DataClean Loading
-2023-06-11 15:33:06,344 Main -> appPredictPrice - Start Gradio APP
-2023-06-11 15:33:06,346 Main -> appPredictPrice - Loading Dropdown atributes from options.json
-2023-06-11 15:33:06,347 Main -> appPredictPrice - Loading department and neighbor
-2023-06-11 15:33:07,146 Main -> mainapp - Mount Gradio APP
-2023-06-11 15:33:12,463 Main -> appPredictPrice - Function estimateValue invoked
-2023-06-11 15:33:12,464 Main -> appPredictPrice - Param of function estimateValue -> ('Casa', 'Artigas', 'Otros', 0, 1, 25)
-2023-06-11 15:33:12,464 Main -> appPredictPrice - Function generateDataArray invoked
-2023-06-11 15:33:12,464 Main -> appPredictPrice - Param of function generateDataArray -> ('Casa', 'Artigas', 'Otros', 0, 1, 25)
-2023-06-11 15:33:12,468 Main -> dataclean_v2 - Function cleanDepartmentLocation invoke - DepLoc index:1
-2023-06-11 15:34:19,237 Main -> myLog - Start Log
-2023-06-11 15:34:19,238 Main -> dataclean_v2 - DataClean Loading
-2023-06-11 15:34:19,238 Main -> appPredictPrice - Start Gradio APP
-2023-06-11 15:34:19,241 Main -> appPredictPrice - Loading Dropdown atributes from options.json
-2023-06-11 15:34:19,241 Main -> appPredictPrice - Loading department and neighbor
-2023-06-11 15:34:20,048 Main -> mainapp - Mount Gradio APP
-2023-06-11 15:34:24,679 Main -> appPredictPrice - Function updateNeighbor invoked
-2023-06-11 15:34:25,826 Main -> appPredictPrice - Function estimateValue invoked
-2023-06-11 15:34:25,826 Main -> appPredictPrice - Param of function estimateValue -> ('Casa', 'Canelones', 'El Pinar', 0, 1, 25)
-2023-06-11 15:34:25,826 Main -> appPredictPrice - Function generateDataArray invoked
-2023-06-11 15:34:25,827 Main -> appPredictPrice - Param of function generateDataArray -> ('Casa', 'Canelones', 'El Pinar', 0, 1, 25)
-2023-06-11 15:34:25,831 Main -> dataclean_v2 - Function cleanDepartmentLocation invoke - DepLoc index:2
+2023-06-11 17:27:49,729 Main -> myLog - Start Log
+2023-06-11 17:27:49,730 Main -> dataclean - DataClean Loading
+2023-06-11 17:27:49,731 Main -> appPredictPrice - Start Gradio APP
+2023-06-11 17:27:49,733 Main -> appPredictPrice - Loading Dropdown atributes from options.json
+2023-06-11 17:27:49,734 Main -> appPredictPrice - Loading department and neighbor
+2023-06-11 17:27:50,533 Main -> mainapp - Mount Gradio APP
+2023-06-11 17:28:50,471 Main -> myLog - Start Log
+2023-06-11 17:28:50,471 Main -> dataclean - DataClean Loading
+2023-06-11 17:28:50,472 Main -> appPredictPrice - Start Gradio APP
+2023-06-11 17:28:50,475 Main -> appPredictPrice - Loading Dropdown atributes from options.json
+2023-06-11 17:28:50,475 Main -> appPredictPrice - Loading department and neighbor
+2023-06-11 17:28:51,332 Main -> mainapp - Mount Gradio APP
+2023-06-11 17:28:57,245 Main -> appPredictPrice - Function updateNeighbor invoked
+2023-06-11 17:29:12,633 Main -> appPredictPrice - Function estimateValue invoked
+2023-06-11 17:29:12,634 Main -> appPredictPrice - Param of function estimateValue -> Montevideo, img shape -> ()
+2023-06-11 17:29:12,634 Main -> appPredictPrice - Function generateDataArray invoked
+2023-06-11 17:29:12,643 Main -> dataclean - Function cleanDepartmentLocation invoke - DepLoc index:170
+2023-06-11 17:31:39,578 Main -> myLog - Start Log
+2023-06-11 17:31:39,579 Main -> dataclean - DataClean Loading
+2023-06-11 17:31:39,579 Main -> appPredictPrice - Start Gradio APP
+2023-06-11 17:31:39,582 Main -> appPredictPrice - Loading Dropdown atributes from options.json
+2023-06-11 17:31:39,583 Main -> appPredictPrice - Loading department and neighbor
+2023-06-11 17:31:40,444 Main -> mainapp - Mount Gradio APP
+2023-06-11 17:31:46,157 Main -> appPredictPrice - Function updateNeighbor invoked
+2023-06-11 17:31:57,929 Main -> appPredictPrice - Function estimateValue invoked
+2023-06-11 17:31:57,930 Main -> appPredictPrice - Function generateDataArray invoked
+2023-06-11 17:31:57,938 Main -> dataclean - Function cleanDepartmentLocation invoke - DepLoc index:170
+2023-06-11 17:31:57,941 Main -> appPredictPrice - Return estimateValue -> [121, 3, 2, 1, 170], img shape -> (192, 256, 3)
+2023-06-11 17:37:28,854 Main -> myLog - Start Log
+2023-06-11 17:37:28,855 Main -> dataclean - DataClean Loading
+2023-06-11 17:37:28,855 Main -> appPredictPrice - Start Gradio APP
+2023-06-11 17:37:28,858 Main -> appPredictPrice - Loading Dropdown atributes from options.json
+2023-06-11 17:37:28,859 Main -> appPredictPrice - Loading department and neighbor
+2023-06-11 17:37:29,719 Main -> mainapp - Mount Gradio APP
+2023-06-11 17:37:35,263 Main -> appPredictPrice - Function updateNeighbor invoked
+2023-06-11 17:37:43,906 Main -> appPredictPrice - Function estimateValue invoked
+2023-06-11 17:37:43,907 Main -> appPredictPrice - Function generateDataArray invoked
+2023-06-11 17:37:43,912 Main -> dataclean - Function cleanDepartmentLocation invoke - DepLoc index:81
+2023-06-11 17:37:43,914 Main -> appPredictPrice - Return estimateValue -> [25, 0, 1, 0, 81], img shape -> (192, 256, 3)
+2023-06-11 17:40:24,604 Main -> myLog - Start Log
+2023-06-11 17:40:24,605 Main -> dataclean - DataClean Loading
+2023-06-11 17:40:24,605 Main -> appPredictPrice - Start Gradio APP
+2023-06-11 17:40:24,609 Main -> appPredictPrice - Loading Dropdown atributes from options.json
+2023-06-11 17:40:24,609 Main -> appPredictPrice - Loading department and neighbor
+2023-06-11 17:40:25,409 Main -> mainapp - Mount Gradio APP
+2023-06-11 17:40:50,043 Main -> appPredictPrice - Function updateNeighbor invoked
+2023-06-11 17:41:03,566 Main -> appPredictPrice - Function estimateValue invoked
+2023-06-11 17:41:03,567 Main -> appPredictPrice - Function generateDataArray invoked
+2023-06-11 17:41:03,576 Main -> dataclean - Function cleanDepartmentLocation invoke - DepLoc index:67
+2023-06-11 17:41:03,579 Main -> appPredictPrice - Return estimateValue -> [106, 3, 2, 0, 67], img shape -> (192, 256, 3)
+2023-06-11 17:41:17,364 Main -> appPredictPrice - Function clearInput invoked
+2023-06-11 17:41:17,473 Main -> appPredictPrice - Function updateNeighbor invoked
+2023-06-11 17:42:03,252 Main -> myLog - Start Log
+2023-06-11 17:42:03,253 Main -> dataclean - DataClean Loading
+2023-06-11 17:42:03,253 Main -> appPredictPrice - Start Gradio APP
+2023-06-11 17:42:03,255 Main -> appPredictPrice - Loading Dropdown atributes from options.json
+2023-06-11 17:42:03,255 Main -> appPredictPrice - Loading department and neighbor
+2023-06-11 17:42:04,004 Main -> mainapp - Mount Gradio APP
+2023-06-11 17:42:08,334 Main -> appPredictPrice - Function updateNeighbor invoked
+2023-06-11 17:42:16,716 Main -> appPredictPrice - Function estimateValue invoked
+2023-06-11 17:42:16,717 Main -> appPredictPrice - Function generateDataArray invoked
+2023-06-11 17:42:16,723 Main -> dataclean - Function cleanDepartmentLocation invoke - DepLoc index:78
+2023-06-11 17:42:16,725 Main -> appPredictPrice - Return estimateValue -> [144, 0, 2, 0, 78], img shape -> (192, 256, 3)
+2023-06-11 17:42:18,812 Main -> appPredictPrice - Function clearInput invoked
+2023-06-11 17:45:49,152 Main -> myLog - Start Log
+2023-06-11 17:45:49,153 Main -> dataclean - DataClean Loading
+2023-06-11 17:45:49,153 Main -> appPredictPrice - Start Gradio APP
+2023-06-11 17:45:49,156 Main -> appPredictPrice - Loading Dropdown atributes from options.json
+2023-06-11 17:45:49,157 Main -> appPredictPrice - Loading department and neighbor
+2023-06-11 17:45:49,990 Main -> mainapp - Mount Gradio APP
+2023-06-11 17:45:58,562 Main -> appPredictPrice - Function clearInput invoked
+2023-06-11 17:47:07,715 Main -> appPredictPrice - Function estimateValue invoked
+2023-06-11 17:47:07,716 Main -> appPredictPrice - Function generateDataArray invoked
+2023-06-11 17:47:07,728 Main -> dataclean - Function cleanDepartmentLocation invoke - DepLoc index:0
+2023-06-11 17:47:07,732 Main -> appPredictPrice - Return estimateValue -> [466, 3, 2, 1, 0], img shape -> (192, 256, 3)
