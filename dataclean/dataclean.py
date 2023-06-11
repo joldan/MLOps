@@ -1,11 +1,22 @@
 import pandas as pd
 import logging as log
+from sys import path
 import re
 import json
-#from LocationManager import LocationManager
+import os
+from os.path import dirname, abspath
+from LocationManager import LocationManager
 
-log.basicConfig(filename='./dataclean.log', encoding='utf-8',format='%(asctime)s %(message)s', level=log.INFO)
-log.info("Start Data Clean")
+rootPath = dirname(dirname(abspath(__file__)))
+# Import myLog
+logPath= rootPath+"/log/"
+path.append(logPath)
+from myLog import *
+
+log.info(f"Main -> %s - DataClean Loading",__name__)
+
+
+#from LocationManager import LocationManager
 
 def cleanData(row):
     row['area'] = row['area'].apply(cleanArea)
@@ -14,13 +25,29 @@ def cleanData(row):
     row['department_location'] = row.apply(cleanDepartmentLocation, axis=1)
     row['rooms'] = row['rooms'].apply(cleanRooms)
     row['price'] = row['price'].apply(cleanPrice)
+    log.info(f"Main -> %s - Function %s invoked, data cleaned",__name__,cleanData.__name__)
     return row
 
 def removeUnusedAndNullRows(df):
-    return df.drop(['date','deal_type','foreign_id','image_urls','images','location','department','title','url'],axis=1).dropna()
+    df2 = df.dropna()
+    return df[['id', 'area','rooms','bathrooms','building_type','department_location', 'price']]
 
 def saveCleanData(df, path='cleanData.csv'):
     df.to_csv(path, index=False)
+
+def removeUnusedPhotos(df):
+    dropped_rows = df[df.isnull().any(axis=1)]
+    dropped_rows_id = dropped_rows['id']
+    remove_files_from_path(dropped_rows_id)
+
+def remove_files_from_path(filenames, path):
+    for filename in filenames:
+        file_path = os.path.join(path, filename)
+        if os.path.isfile(file_path):
+            os.remove(file_path)
+            log.info(f"File '{filename}' removed successfully.")
+        else:
+            log.info(f"File '{filename}' does not exist.")
 
 
 def cleanBathroom(bathrooms):
@@ -63,10 +90,12 @@ def cleanDepartmentLocation(row):
     this_deploc = row['department'] + row['location']
     this_deploc = this_deploc.lower().replace(' ','')
     if(this_deploc in dep_loc):
-        return dep_loc.index(this_deploc)
+        data =  dep_loc.index(this_deploc)
+        log.info(f'Main -> %s - Function %s invoke - DepLoc index:%s',__name__,cleanDepartmentLocation.__name__,data)
+        return data
     else:
-        log.info(f'Clean Department Location failed to validate: %s and %s',row['department'],row['location'])
-
+        log.info(f'Main -> %s - Function %s invoke - Clean Department Location failed to validate: %s and %s',__name__,cleanDepartmentLocation.__name__,row['department'],row['location'])
+        return -1
 
 def cleanPrice(price):
     try:
