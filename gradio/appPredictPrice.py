@@ -3,6 +3,7 @@
 # Library
 import json
 import gradio as gr
+import os
 from os.path import dirname, abspath
 import datetime as time
 from logging.handlers import RotatingFileHandler
@@ -12,17 +13,19 @@ import numpy as np
 from PIL import Image
 rootPath = dirname(dirname(abspath(__file__)))
 dataCleanPath= rootPath+"/dataclean/"
+gradioPath= rootPath+"/gradio/"
 path.append(dataCleanPath)
 from LocationManager import *
 from dataclean import *
 pathLog = rootPath+"/log/"
 path.append(pathLog)
 from myLog import *
+path.append(gradioPath)
 
 # System constants
 dropdownOption = "options.json" 
 rootPath = dirname(dirname(abspath(__file__)))
-gradioPath= rootPath+"/gradio/"
+
 fastapiPath = rootPath+"/fastapi/"
 confPath = rootPath+"/conf/"
 logName = "app.log"
@@ -106,7 +109,14 @@ with gr.Blocks() as appPredictPrice:
                     departmentLocation = gr.Dropdown(choices=department, label="Departameto",value=department[0],interactive=True) 
                     location = gr.Dropdown(choices=neighbor, label="Barrio",interactive=True,value=neighbor[0])
             with gr.Column():
-                image_input = gr.Image(type="pil",shape=(256, 192))
+                with gr.Row():
+                    image_input = gr.Image(type="pil",shape=(256, 192))
+                with gr.Row():
+                    gr.Markdown("### Imagenes de muestra")
+                    gr.Examples(
+                        examples=[os.path.join(os.path.dirname(__file__), "apartamento.jpg"),os.path.join(os.path.dirname(__file__), "casa.jpg")],
+                        inputs=image_input
+                    )
         with gr.Row():
             rooms = gr.Slider(0,5,step=1,label="Dormitorios",info="Seleccionar entre 0 y 5+",interactive=True)
             bathrooms = gr.Slider(1,4,step=1,label="Baños",info="Seleccionar entre 1 y 4+",interactive=True)
@@ -116,6 +126,7 @@ with gr.Blocks() as appPredictPrice:
                 button_predict = gr.Button("Estimar valor")
                 button_clear = gr.Button("Limpiar")
             text_predict = gr.Textbox(label="Valor estimado")
+            #outputs=gr.Label(label="Rango de valor estimado",num_top_classes=4)
 	#Tab de predicción por lote
     with gr.Tab("Predicción en lotes"):
         with gr.Row():
