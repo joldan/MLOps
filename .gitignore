@@ -1,1 +1,2 @@
-.scrapy/gallito_spider/output
+scrapy/gallito_spider/output/
+log/
