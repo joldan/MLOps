@@ -5,6 +5,7 @@ import re
 import json
 import os
 import numpy as np
+from PIL import Image
 from os.path import dirname, abspath
 from LocationManager import LocationManager
 
@@ -36,6 +37,35 @@ def removeUnusedAndNullRows(df):
 
 def saveCleanData(df, path='cleanData.csv'):
     df.to_csv(path, index=False)
+
+
+def resize_images(folder_path_in, folder_path_out, filenames, new_size):
+    file_count = len(filenames)
+    log.info("Main -> %s - Function %s invoked", __name__, resize_images.__name__)
+    log.info("Number of files to transform: %d", file_count)
+    for filename in filenames.values:
+        # Construct the file path
+        file_path_in = os.path.join(folder_path_in, str(filename))
+        file_path_out = os.path.join(folder_path_out, str(filename))
+        
+        # Check if the image file exists
+        if not os.path.exists(file_path_in):
+            log.warning("Image file not found: %s", file_path_in)
+            continue
+        
+        # Create the output folder if it doesn't exist
+        os.makedirs(folder_path_out, exist_ok=True)
+
+        # Open the image file
+        image = Image.open(file_path_in)
+        
+        # Resize the image
+        resized_image = image.resize(new_size)
+        
+        # Save the resized image with a modified filename
+        resized_image.save(file_path_out, 'JPEG')
+
+
 
 def removeUnusedPhotos(df):
     dropped_rows = df[df.isnull().any(axis=1)]
