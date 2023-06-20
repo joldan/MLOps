@@ -1,7 +1,7 @@
 ## APP FastApi
 
 # Importar librerias
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, Form
 from pydantic import BaseModel
 from sys import path
 from os.path import dirname, abspath
@@ -58,7 +58,7 @@ def read_app():
 #    return {"area":str(request.area)}
 
 @app.post("/predict/")
-async def upload_image(data:dict,image_file:UploadFile = File(...)): #image_file: UploadFile = File(...)
+async def upload_image(data:dict,image_file:UploadFile = File(...)): 
     # Procesar la imagen
     #contents = await file.read()
     try:
@@ -83,6 +83,35 @@ async def upload_image(data:dict,image_file:UploadFile = File(...)): #image_file
         raise HTTPException(status_code=400, detail=f"Error processing image")
 
     return {"message": "todo está bien"}
+
+@app.post("/predict2/")
+async def upload_data(data: str = Form(...),image_file:UploadFile = File(...)): 
+    # Procesar la imagen
+    #contents = await file.read()
+    try:
+        data = data.split(",")
+        area = int(data[0])
+        rooms = int(data[1])
+        bathrooms = int(data[2])
+        buildingType = data[3]
+        departmentLocation = data[4]
+        location = data[5]
+        row = pd.DataFrame({"department":[departmentLocation],"location":[location],'departlocation':[0]})
+        row['departlocation'] = row.apply(cleanDepartmentLocation, axis=1)
+        btype = 1 if buildingType == "Casa" else 0
+        predictors = [0,[area,rooms,bathrooms,btype,row.loc[0,'departlocation']]]
+        print(predictors)
+    except:
+        raise HTTPException(status_code=400, detail=f"Error processing Data")
+    try:
+        print("Cargo imagen")
+        image = Image.open(image_file.file)
+        resized_image = image.resize(new_size) 
+    except:
+        raise HTTPException(status_code=400, detail=f"Error processing image")
+
+    return {"message": "todo está bien"}
+
 
 try:
     app = gr.mount_gradio_app(app, appPredictPrice, path=CUSTOM_PATH)
