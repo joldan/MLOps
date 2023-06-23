@@ -97,17 +97,17 @@ def generateDataArray(*param):
     row = pd.DataFrame({"department":[departmentLocation],"location":[location],'departlocation':[0]})
     row['departlocation'] = row.apply(cleanDepartmentLocation, axis=1)
     btype = 1 if buildingType == "Casa" else 0
-    pront = [param[6],[area,rooms,bathrooms,btype,row.loc[0,'departlocation']]]
+    pront = [area,rooms,bathrooms,btype,row.loc[0,'departlocation']]
     return pront
 
 
 def estimateValue(*param):
     log.info(f"Main -> %s - Function %s invoked",__name__,estimateValue.__name__)
     pront = generateDataArray(*param)
-    log.info(f'Main -> %s - Return %s -> %s, img shape -> %s',__name__,estimateValue.__name__,pront[1],np.shape(pront[0]))
-    tabularsValue = torch.tensor(np.array(pront[1]).reshape(1,5))
-    if np.shape(pront[0]) == (192, 256, 3):
-        img = torch.tensor(np.array(pront[0]).reshape(1,3,192,256))
+    log.info(f'Main -> %s - Return %s -> %s, img shape -> %s',__name__,estimateValue.__name__,pront,np.shape(param[6]))
+    tabularsValue = torch.tensor(np.array(pront).reshape(1,5))
+    if np.shape(param[6]) == (192, 256, 3):
+        img = torch.tensor(np.array(param[6]).reshape(1,3,192,256))
         with torch.no_grad():
             predict = mlpModel(img,tabularsValue)
             predictLabel = {labels[i]: float(predict[0,i]) for i in range(4)}
@@ -148,14 +148,9 @@ with gr.Blocks() as appPredictPrice:
                 button_clear = gr.Button("Limpiar")
             #text_predict = gr.Textbox(label="Valor estimado")
             outputsPredict=gr.Label(label="Rango de valor estimado",num_top_classes=4)
-	#Tab de predicción por lote
-    with gr.Tab("Predicción en lotes"):
-        with gr.Row():
-            image_output = gr.Image()
-        image_button = gr.Button("Flip")
 
     with gr.Accordion("Acerca del modelo"):
-        gr.Markdown("El modelo es....")
+        gr.Markdown("El modelo es una red neuronal...")
 
 
     departmentLocation.change(updateNeighbor, departmentLocation,location)

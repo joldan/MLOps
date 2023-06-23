@@ -7,6 +7,8 @@ from sys import path
 from os.path import dirname, abspath
 import datetime as time
 from PIL import Image
+from typing import List
+import array as arr
 rootPath = dirname(dirname(abspath(__file__)))
 
 
@@ -26,15 +28,25 @@ fastPath= rootPath+"/fastapi/"
 
 app = FastAPI()
 
+# System VAR
 
-class Request(BaseModel):
-    #buildingType = int
-    #departmentLocation = str
-    #location = str
-    #rooms = int
-    #bathrooms = int
-    area = int
+class Param():
+    buildingType = 0
+    departmentLocation = ""
+    location = ""
+    rooms = 0
+    bathrooms = 0
+    area = 0
 
+paux = Param()
+
+class Item(BaseModel):
+    buildingType : int
+    departmentLocation : str
+    location : str
+    rooms  : int
+    bathrooms : int
+    area : int
 
 class Result(BaseModel):
     price: int
@@ -44,8 +56,7 @@ class Response(BaseModel):
 
 CUSTOM_PATH = "/"
 
-def predict2(request: Request):
-    return  request.area
+
 
 @app.get("/app")
 def read_app():
@@ -57,61 +68,87 @@ def read_app():
     #log.info(f"Main -> %s - Function %s invoked",__name__,predict_api.__name__)
 #    return {"area":str(request.area)}
 
+
+def parse_data(data):
+    # Parse data form string FORM
+    try:
+        data = data.split(";")
+        paux.area = int(data[0])
+        paux.rooms = int(data[1])
+        paux.bathrooms = int(data[2])
+        paux.buildingType = data[3]
+        paux.departmentLocation = data[4]
+        paux.location = data[5]
+        return True
+    except:
+        return False
+
 @app.post("/predict/")
-async def upload_image(data:dict,image_file:UploadFile = File(...)): 
-    # Procesar la imagen
-    #contents = await file.read()
-    try:
-        area = int(data["area"])
-        rooms = int(data["rooms"])
-        bathrooms = int(data["bathrooms"])
-        buildingType = data["buildingType"]
-        departmentLocation = data["departmentLocation"]
-        location = data["location"]
-        row = pd.DataFrame({"department":[departmentLocation],"location":[location],'departlocation':[0]})
-        row['departlocation'] = row.apply(cleanDepartmentLocation, axis=1)
-        btype = 1 if buildingType == "Casa" else 0
-        predictors = [0,[area,rooms,bathrooms,btype,row.loc[0,'departlocation']]]
-        print(predictors)
-    except:
-        raise HTTPException(status_code=400, detail=f"Error processing Data")
-    try:
-        print("Cargo imagen")
-       # image = Image.open(image_file.file)
-       # resized_image = image.resize(new_size) 
-    except:
-        raise HTTPException(status_code=400, detail=f"Error processing image")
-
-    return {"message": "todo está bien"}
-
-@app.post("/predict2/")
 async def upload_data(data: str = Form(...),image_file:UploadFile = File(...)): 
-    # Procesar la imagen
-    #contents = await file.read()
-    try:
-        data = data.split(",")
-        area = int(data[0])
-        rooms = int(data[1])
-        bathrooms = int(data[2])
-        buildingType = data[3]
-        departmentLocation = data[4]
-        location = data[5]
-        row = pd.DataFrame({"department":[departmentLocation],"location":[location],'departlocation':[0]})
-        row['departlocation'] = row.apply(cleanDepartmentLocation, axis=1)
-        btype = 1 if buildingType == "Casa" else 0
-        predictors = [0,[area,rooms,bathrooms,btype,row.loc[0,'departlocation']]]
-        print(predictors)
-    except:
-        raise HTTPException(status_code=400, detail=f"Error processing Data")
-    try:
-        print("Cargo imagen")
-        image = Image.open(image_file.file)
-        resized_image = image.resize(new_size) 
-    except:
-        raise HTTPException(status_code=400, detail=f"Error processing image")
+    # Predict Function
+    log.info(f"Main -> %s - Function %s invoked",__name__,upload_data.__name__)
+    prediction = ""
+    if parse_data(data):
+        try:
+            image = Image.open(image_file.file)
+            resized_image = image.resize(new_size) 
+            try:
+                param = [paux.buildingType,paux.departmentLocation,paux.location,paux.rooms,paux.bathrooms,paux.area,resized_image]
+                prediction = estimateValue(*param)
+            except:
+                log.info(f"Main -> %s - Function %s - Error in predict",__name__,upload_data.__name__)
+                prediction = "Error in predict"
+        except:
+            log.info(f"Main -> %s Function %s - Error processing imag",__name__, upload_data.__name__)
+            prediction = "Error processing image"
+    else:
+        prediction = "Error parse data" 
+        log.info(f"Main -> %s - Function %s - Error parse data",__name__, upload_data.__name__)   
+    return {"message": str(prediction)}
 
-    return {"message": "todo está bien"}
-
+@app.post("/predictBatch/")
+async def upload_data_batch(datas: list[str] = Form(...) ,images_files :List[UploadFile] = File(...)): 
+    log.info(f"Main -> %s - Function %s invoked",__name__,upload_data_batch.__name__)
+    prediction = ""
+    length_datas = 0
+    length_images = 0
+    imgList = []
+    tabularList = []
+    predictLabel = []
+    try:
+        datas_str = str(datas)
+        datas_str  = datas_str.split("'")
+        datas_str  = datas_str[1].split(",")
+        length_datas = len(datas_str)
+    except:
+        log.info(f"Main -> %s - Function %s - Error parse data",__name__, upload_data_batch.__name__) 
+        prediction = "Error length datas"
+    try:
+        length_images = len(images_files)
+    except:
+        log.info(f"Main -> %s - Function %s - Error length images",__name__, upload_data_batch.__name__) 
+        prediction = "Error length images"
+    if(length_datas == length_images):
+        for  tValues,image_file in zip(datas_str,images_files) :
+            image = Image.open(image_file.file)
+            resized_image = image.resize(new_size)
+            imgList.append(np.array(resized_image).reshape(3,192,256))
+            aux = tValues.split(";")
+            if(parse_data(tValues)):
+                param = [paux.buildingType,paux.departmentLocation,paux.location,paux.rooms,paux.bathrooms,paux.area]
+                tabularList.append(np.array(generateDataArray(*param)).reshape(5))
+        img = torch.tensor(np.array(imgList))
+        tabularsValues = torch.tensor(np.array(tabularList))
+        with torch.no_grad():
+            predict = mlpModel(img,tabularsValues)
+            for i in range(predict.shape[0]):
+                predictLabel.append({labels[j]: float(predict[i,j]) for j in range(4)})
+    
+        prediction = predictLabel
+    else:
+        log.info(f"Main -> %s - Function %s - Image and tabulars do not have the same size",__name__, upload_data_batch.__name__) 
+        prediction = "Image and tabulars do not have the same size"
+    return {"message":str(prediction)}
 
 try:
     app = gr.mount_gradio_app(app, appPredictPrice, path=CUSTOM_PATH)
