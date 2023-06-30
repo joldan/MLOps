@@ -1,0 +1,6 @@
+gradio
+fastapi
+uvicorn
+torch
+torchvision
+python-multipart
