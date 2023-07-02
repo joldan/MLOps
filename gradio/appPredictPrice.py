@@ -104,7 +104,7 @@ def generateDataArray(*param):
 def estimateValue(*param):
     log.info(f"Main -> %s - Function %s invoked",__name__,estimateValue.__name__)
     pront = generateDataArray(*param)
-    log.info(f'Main -> %s - Return %s -> %s, img shape -> %s',__name__,estimateValue.__name__,pront,np.shape(param[6]))
+    log.info(f'Main -> %s - %s Return -> %s, img shape -> %s',__name__,generateDataArray.__name__,pront,np.shape(param[6]))
     tabularsValue = torch.tensor(np.array(pront).reshape(1,5))
     if np.shape(param[6]) == (192, 256, 3):
         img = torch.tensor(np.array(param[6]).reshape(1,3,192,256))
